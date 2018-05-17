@@ -167,7 +167,7 @@ SECTIONS
 
  /* CITIES*/
 .cities{
-    background-color: #efefef;
+    background-color: #f9f9ff;
 }
 #cities{
 
@@ -177,7 +177,7 @@ SECTIONS
 
 }
 #directions{
-    background-color: #efefef;
+    background-color: #f9f9ff;
 }
 /* OLYMPIC SCHEMA */
 .schema{
