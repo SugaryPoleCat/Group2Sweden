@@ -1,1 +1,2 @@
 # Group2Sweden
+HOW DO I WRITE IN ENGLISH!
