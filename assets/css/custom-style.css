@@ -36,3 +36,137 @@
     transition: ease-in-out 0.5s;
     background:#00669A;
 }
+
+
+.schema{
+    background-color: #efefef;
+}
+.form-container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+.tab {
+ overflow: hidden;
+ border: 1px solid #ccc;
+ background-color: #f1f1f1;
+}
+
+.tab button {
+ background-color: inherit;
+ float: left;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ padding: 14px 16px;
+ transition: 0.3s;
+ font-size: 17px;
+ width: 20%;
+}
+
+.tab button:hover {
+ background-color: #ddd;
+}
+
+.tab button.active {
+ background-color: #ccc;
+}
+
+.tabcontent {
+ display: none;
+ padding: 12px;
+ border: 1px solid #ccc;
+ border-top: none;
+}
+.color-black{
+ color: #000000;
+}
+.transport-item{
+ border-radius: 0 !important;
+}
+.label-item{
+ border-top: 1px solid black;
+ padding: .75rem 1.25rem;
+ display: flex;
+ justify-content: space-between;
+}
+.transport-time{
+ text-align: right;
+}
+.transport-title, .transport-time{
+ margin-bottom: 0;
+}
+.icon-div{
+ margin-top: 10px;
+ margin-left: 5px;
+}
+.icon-i{
+ margin-right: 10px;
+}
+#all-routes{
+ /*width: 55%;*/
+ width: 100%;
+ padding: 0 15px;
+}
+#output{
+ /*display: flex;*/
+}
+.tabacc{
+ position: relative;
+ width: 100%;
+ overflow: hidden;
+}
+.tabacc input{
+ position: absolute;
+ opacity: 0;
+ z-index: -1;
+}
+.tabacc input:checked ~ label{
+ background-color: #eee;
+}
+.tabacc label{
+ position: relative;
+ cursor: pointer;
+ margin-bottom: 0;
+ padding-top: 1rem;
+ padding-bottom: 1rem;
+}
+.tabacc label:hover{
+ background-color: #eee;
+}
+.tab-content{
+ padding-left: 1rem;
+ padding-right: 1rem;
+ max-height: 0;
+ overflow: hidden;
+ -webkit-transition: max-height .45s;
+ -o-transition: max-height .45s;
+ transition: max-height .45s;
+}
+.tabacc input:checked ~ .tab-content{
+ max-height: 30em;
+ background-color: #eee;
+}
+.close1, .close2, .close {
+ color: #aaa;
+ float: right;
+ font-size: 28px;
+ font-weight: bold;
+}
+.modal {
+ display: none; 
+ position: fixed; 
+ z-index: 1; 
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%; 
+ overflow: auto; 
+}
+.modal-content {
+ background-color: #fefefe;
+ margin: 15% auto; 
+ padding: 20px;
+ border: 1px solid #888;
+ width: 80%;
+}
