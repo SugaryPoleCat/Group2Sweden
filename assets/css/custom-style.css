@@ -1,0 +1,38 @@
+
+/* STYLE*/
+.custom-container{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.navbar-default .navbar-nav>.active>a{
+    color: #FFCD00;
+}
+.navbar-default .navbar-nav>li>a{
+    color: #eee;
+}
+
+.navbar-brand img{
+    width: 60px;
+    margin-top: -18px
+}
+/* RESPONSIVE */
+@media(max-width: 450px){
+    .custom-container{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover{
+    color: #FFCD00;
+}
+
+.schema{
+    background-color: #efefef;
+}
+
+.menu-bg{
+    transition: ease-in-out 0.5s;
+    background:#00669A;
+}
