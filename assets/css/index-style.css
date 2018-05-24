@@ -1,0 +1,102 @@
+#directions{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.transport-item{
+    border-radius: 0 !important;
+}
+.label-item{
+    border-top: 1px solid black;
+    padding: .75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+}
+.transport-time{
+    text-align: right;
+}
+.transport-title, .transport-time{
+    margin-bottom: 0;
+}
+.icon-div{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.icon-i{
+    margin-right: 10px;
+}
+.tabacc{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.tabacc input{
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+.tabacc input:checked ~ label{
+    background-color: #eee;
+}
+.tabacc label{
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.tabacc label:hover{
+    background-color: #eee;
+}
+.tab-content{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height .45s;
+    -o-transition: max-height .45s;
+    transition: max-height .45s;
+}
+.tabacc input:checked ~ .tab-content{
+    max-height: 20em;
+    background-color: #eee;
+}
+#map{
+    width: 75%;
+    height: inherit;
+    max-height: 900px;
+    min-height: 650px;
+}
+#all-routes{
+    width: 25%;
+    padding: 0 15px;
+    min-width: 250px;
+}
+#output{
+    display: flex;
+    max-height: 100%;
+}
+#submit-button{
+    margin-bottom: 50px;
+    border: 1px solid black;
+}
+h5{
+    font-size: 1.15rem;
+}
+
+/* Responsive */
+@media only screen and (max-height: 900px){
+    #map{
+        max-height: 600px;
+    }
+}
+@media only screen and (max-width: 600px){
+    #output {
+        display: block;
+    }
+    #map{
+        width: 100%;
+    }
+    #all-routes{
+        width: 100%;
+    }
+}

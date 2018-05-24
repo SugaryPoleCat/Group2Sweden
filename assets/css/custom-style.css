@@ -32,7 +32,7 @@ THESE THINGS HERE CHANGE THE STYLE AND RESPONSIVE FILE
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover{
-    color: #FFCD00;
+    color: rgb(218, 201, 136);
 }
 
 .menu-bg{
@@ -85,72 +85,6 @@ THESE HERE ARE RANDOM AND UNCATEGORISED
 }
 .color-black{
  color: #000000;
-}
-.transport-item{
- border-radius: 0 !important;
-}
-.label-item{
- border-top: 1px solid black;
- padding: .75rem 1.25rem;
- display: flex;
- justify-content: space-between;
-}
-.transport-time{
- text-align: right;
-}
-.transport-title, .transport-time{
- margin-bottom: 0;
-}
-.icon-div{
- margin-top: 10px;
- margin-left: 5px;
-}
-.icon-i{
- margin-right: 10px;
-}
-#all-routes{
- /*width: 55%;*/
- width: 100%;
- padding: 0 15px;
-}
-#output{
- /*display: flex;*/
-}
-.tabacc{
- position: relative;
- width: 100%;
- overflow: hidden;
-}
-.tabacc input{
- position: absolute;
- opacity: 0;
- z-index: -1;
-}
-.tabacc input:checked ~ label{
- background-color: #eee;
-}
-.tabacc label{
- position: relative;
- cursor: pointer;
- margin-bottom: 0;
- padding-top: 1rem;
- padding-bottom: 1rem;
-}
-.tabacc label:hover{
- background-color: #eee;
-}
-.tab-content{
- padding-left: 1rem;
- padding-right: 1rem;
- max-height: 0;
- overflow: hidden;
- -webkit-transition: max-height .45s;
- -o-transition: max-height .45s;
- transition: max-height .45s;
-}
-.tabacc input:checked ~ .tab-content{
- max-height: 30em;
- background-color: #eee;
 }
 .close1, .close2, .close {
  color: #aaa;

@@ -8,6 +8,8 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnDF77c4DZf_Qaq2Y8n8j5gXvge6YuHFk&libraries=places,geometry&language=EN"></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Go2Sweden</title>
@@ -37,6 +39,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="assets/css/custom-style.css" />
+    <link rel="stylesheet" href="assets/css/index-style.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
@@ -47,158 +50,105 @@
     <div ng-include="'nav.html'"></div>
     <!--Home page style-->
     <div ng-include="'home.html'"></div>
-    <div ng-include="'section-directions.html'"></div>
-    <div ng-include="'section-schema.html'"></div>
-    <div ng-include="'section-city.html'"></div>
-    <!-- Sections -->
-    <!--
-    <section id="cities" class="cities sections" style="overflow:hidden">
+
+    <section id="directions" class="directions sections">
         <div class="custom-container">
             <div class="heading text-center">
-                <h1>Our Cities</h1>
+                <h1>Travel to Sweden</h1>
                 <div class="separator"></div>
             </div>
+            <div class="form-container">
 
-            <div class="row">
-                <div class="wrapper">
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="service-item text-center">
-                            <h5>Stockholm</h5>
-                            <div class="separator2"></div>
-                                <img src="https://pictures.europeandestinations.com/images/packages/sweden/stockholm-aerialview500.jpg" alt="sthlm" width="90%" height="200px">
-                        </div>
+                <form id="location-form">
+                    <div class="form-group">
+                        <label class="col-form-label">From</label>
+                        <input type="text" class="form-control" placeholder="From" name="from" id="location-input" required>
                     </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="service-item text-center">
-                            <h5>Falun</h5>
-                            <div class="separator2"></div>
-                                <img src="assets/images/falun.png" alt="falun" style="width:90%" height="200px">
-                        </div>
+                    <div class="form-group">
+                        <label class="col-form-label">To</label>
+                        <select class="category form-control" id="destination-input" required>
+                            <option value="Stockholm, Sweden">Stockholm</option>
+                            <option value="Åre, Sweden">Åre</option>
+                            <option value="Falun, Sweden">Falun</option>
+                        </select>
                     </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="service-item text-center">
-                            <h5>Åre</h5>
-                            <div class="separator2"></div>
-                                <img src="assets/images/are.png" alt="are" style="width:90%" height="200px">
-                        </div>
+                    <!--
+                    <div class="form-group">
+                        <label class="col-form-label">Currency</label>
+                        <select class="form-control" id="currency">
+                            <option value="SEK">SEK</option>
+                            <option value="USD">USD</option>
+                        </select>
                     </div>
-                </div>
+                    -->
+                    <button id="submit-button" type="submit" class="submit">
+                        <strong>Go</strong>
+                    </button>
+                </form>
             </div>
+            <div id="location-output"></div>
+
         </div>
-    -->
-        <!-- /container -->
-        <!-- </section> -->
+        <div id="output">
+            <div id="all-routes"></div>
+            <div id="map"></div>
+        </div>
 
-        <!-- Sections -->
-        
+    </section>
 
+    <div ng-include="'section-schema.html'"></div>
+    <div ng-include="'section-city.html'"></div>
 
-        <!-- Sections -->
-        <!-- <section id="contact" class="contact">
-            <div class="container">
-                
-                <div class="row">
+    <!--Footer-->
+    <div ng-include="'footer.html'"></div>
 
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="contact-top">
-                            <h1>Contact Us</h1>
-                        </div>
-                        <div class="contact-left-info">
-                            <h5>Our Address</h5>
-                            <p>House No,11132, Sector 31, Gurgaon 122001  India</p>
-                        </div>
-
-                        <div class="contact-left-info">
-                            <h5>Call Us</h5>
-                            <p>+ 91-9876543210</p>
-                            <p>+ 91-9876543210</p>
-                        </div>
-
-                        <div class="contact-left-info">
-                            <h5>Email Us</h5>
-                            <p>contactus@email.com</p>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <div class="contact-top navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-right bottom-nav">
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#service">Services</a></li>
-                                <li><a href="#portfolio">Portfolio</a></li>
-                                <li><a href="#testimonial">Testimonials</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="contact-form">
-                            <form action="" method="POST">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Name</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Subject</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Your Message</label>
-                                            <textarea rows="7" class="form-control" id="exampleInputPassword1" placeholder=""></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="contact-btn">
-                                    <button type="submit" class="btn btn-primary">Send Message</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>     
-        </section> -->
-
-        <!--Footer-->
-        <div ng-include="'footer.html'"></div>
-
-        <!-- IMPORTANT DONT MOVE OR LOADE WONT WORK -->
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <!-- IMPORTANT DONT MOVE OR LOADE WONT WORK -->
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>
     <script src="assets/js/vendor/isotope.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/jquery.magnific-popup.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
 
+    <!-- SCRIPT FÖR RESESÖKNING-->
+
+    <script>
         var locationForm = document.getElementById('location-form');
 
+        var locationInput = document.getElementById('location-input');
+        var autocomplete = new google.maps.places.Autocomplete(locationInput);
+
         locationForm.addEventListener('submit', geocode);
+
+        var routesList;
+        var totalTimeMin;
+        var segmentTimeMin;
+        var totalPrice;
+        var placesList;
+        var vehiclesList;
+        var segmentsList;
 
         function geocode(e) {
             e.preventDefault();
 
-            var routesList;
+            //map = new google.maps.Map(mapDiv, mapOptions);
 
-            var currency = document.getElementById('currency').value;
+            var currencyCode;
+            var userLang = navigator.language || navigator.userLanguage; 
+
+            if(userLang == "sv-SE"){
+                currencyCode = "SEK";
+            }
 
             var location = document.getElementById('location-input').value;
+
             var destination = document.getElementById('destination-input').value;
             axios.get('http://free.rome2rio.com/api/1.4/json/Search', {
                 params: {
+                    key: 'S2Q8spaR',
                     oName: location,
                     dName: destination,
-                    key: 'S2Q8spaR'
+                    currencyCode: currencyCode
                 }
             })
                 .then(function (response) {
@@ -206,21 +156,6 @@
                     console.log(response);
 
                     showRoutes('all-routes', '', '');
-                    /*
-                    showRoutes('train-routes', 'Train', 'train');
-                    showRoutes('fly-routes', 'Fly', 'fly');
-                    showRoutes('bus-routes', 'Bus', 'bus');
-                    showRoutes('drive-routes', 'Drive', 'drive');
-                    */
-
-                    var totalTimeMin;
-                    var segmentTimeMin;
-                    var totalPrice;
-                    var placesList;
-                    var vehiclesList;
-                    var segmentsList;
-
-                    var segmentPath;
 
                     function showRoutes(divRoutes, xType, type) {
 
@@ -233,16 +168,16 @@
                             if (routesList[i].name.includes(xType) || routesList[i].name.includes(type)) {
 
                                 allOutput += `
-                                <div id="div${i}">
-                                <input id="${i}" type="checkbox" name="tabs">
-                                <label class="label-item" for="${i}"><h5 class="color-black">`;
+                            <div id="div${i}">
+                            <input id="${i}" type="radio" name="tabs" onclick="writePath(${i});">
+                            <label class="label-item" for="${i}"><h5 class="color-black">`;
                                 if (routesList[i].name.includes('Train') || routesList[i].name.includes('train')) {
                                     allOutput += '<i class="fas fa-train icon-i"></i>';
                                 }
                                 if (routesList[i].name.includes('Bus') || routesList[i].name.includes('bus')) {
                                     allOutput += '<i class="fas fa-bus icon-i"></i>';
                                 }
-                                if (routesList[i].name.includes('Fly') || routesList[i].name.includes('fly')) {
+                                if (routesList[i].name.startsWith('Fly') || routesList[i].name.includes('fly ')) {
                                     allOutput += '<i class="fas fa-plane icon-i"></i>';
                                 }
                                 if (routesList[i].name.includes('Drive') || routesList[i].name.includes('drive')) {
@@ -258,40 +193,39 @@
                                     allOutput += '<i class="fas fa-ship icon-i"></i>';
                                 }
                                 allOutput += `
-                                ${routesList[i].name}
-                                </h5>
-                                <p class="transport-time color-black">`;
-                                
-                                if(typeof routesList[i].indicativePrices !== 'undefined'){
+                            ${routesList[i].name}
+                            </h5>
+                            `;
+
+                            allOutput += `
+                            <p class="transport-time color-black"><b>`;
+
+                                if (typeof routesList[i].indicativePrices !== 'undefined') {
                                     totalPrice = routesList[i].indicativePrices[0].price;
                                 }
-                                if (currency == 'SEK') {
-                                    totalPrice = totalPrice * 8.6;
-                                    totalPrice = Math.ceil(totalPrice);
-                                }
-
                                 totalTimeMin = convertTime(routesList[i].totalDuration);
 
                                 allOutput += `
-                                ${totalTimeMin}
-                                </br>
-                                <strong>`;
-
-                                if(typeof routesList[i].indicativePrices !== 'undefined'){
-                                    if (currency == 'USD')
+                            ${totalTimeMin}
+                            </b>
+                            <br>
+                            <b>`;
+                                if (typeof routesList[i].indicativePrices !== 'undefined') {
+                                    if( currencyCode !== "SEK"){
                                         allOutput += '$';
-
+                                    }
                                     allOutput += `${totalPrice}`;
-                                    if (currency == 'SEK')
+                                    if( currencyCode == "SEK"){
                                         allOutput += ' kr';
+                                    }
                                 }
                                 allOutput += `
-                                </strong>
-                                </p>
-                                </label>
-                                <div class="tab-content">
-                                <table class="table table-sm color-black">
-                                `;
+                            </b>
+                            </p>
+                            </label>
+                            <div class="tab-content">
+                            <table class="table table-sm color-black">
+                        `;
 
                                 segmentsList = response.data.routes[i].segments;
                                 placesList = response.data.places;
@@ -300,48 +234,33 @@
                                 for (var j = 0; j < segmentsList.length; j++) {
 
                                     allOutput += `
-                                <tr><td>
-                                ${j + 1}.
-                                ${vehiclesList[segmentsList[j].vehicle].name} 
-                                from ${placesList[segmentsList[j].depPlace].shortName} 
-                                to ${placesList[segmentsList[j].arrPlace].shortName}
-                                </td><td style="text-align: right">`;
+                            <tr><td>
+                            ${j + 1}.
+                            ${vehiclesList[segmentsList[j].vehicle].name} 
+                            from ${placesList[segmentsList[j].depPlace].shortName} 
+                            to ${placesList[segmentsList[j].arrPlace].shortName}
+                            </td><td style="text-align: right">`;
 
                                     segmentTimeMin = convertTime(segmentsList[j].transitDuration);
 
                                     allOutput += `
-                                ${segmentTimeMin}
-                                </td>
-                                </tr>
-                                `;
+                            ${segmentTimeMin}
+                            </td>
+                            </tr>
+                            `;
                                 }
 
                                 allOutput += `
-                                </table>
-                                </div>
-                                </div>
-                                `;
+                        </table>
+                        </div>
+                        </div>
+                        `;
                             }
-
-                            
                         }
+
                         allOutput += '</div>';
 
                         document.getElementById(divRoutes).innerHTML = allOutput;
-                        /*
-                        for(var i = 0; i < routesList.length; i++){
-                            segmentsList = response.data.routes[i].segments;
-                            for (var j = 0; j < segmentsList.length; j++){
-                                document.getElementById("div" + i).addEventListener("mouseover", mouseOver(segmentsList[j].path));
-                                document.getElementById("div" + i).addEventListener("mouseout", mouseOut(segmentsList[j].path));
-                            }
-                        }
-
-                        function mouseOver(path) {
-                        }
-
-                        function mouseOut(path) {
-                        }*/
 
                     }
 
@@ -351,21 +270,59 @@
                 })
         }
 
-/*
-        function openRoutes(evt, transport) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+        function writePath(route) {
+            if (typeof routesList !== 'undefined') {
+                for (var i = 0; i < routesList.length; i++) {
+                    var segmentsListPath = routesList[route].segments;
+                    var segmentsListRemove = routesList[i].segments;
+                    for (var k = 0; k < segmentsListRemove.length; k++) {
+                        removePolyline();
+                    }
+                    for (var j = 0; j < segmentsListPath.length; j++) {
+                        if (typeof segmentsListPath[j].path !== 'undefined') {
+                            setPolyline(google.maps.geometry.encoding.decodePath(segmentsListPath[j].path));
+                        } else {
+                            setPolyline([
+                                { lat: placesList[segmentsListPath[j].depPlace].lat, lng: placesList[segmentsListPath[j].depPlace].lng },
+                                { lat: placesList[segmentsListPath[j].arrPlace].lat, lng: placesList[segmentsListPath[j].arrPlace].lng }
+                            ]);
+                        }
+                    }
+                }
             }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(transport).style.display = "block";
-            evt.currentTarget.className += " active";
         }
-        document.getElementById("defaultOpen").click();*/
+
+        var polyline = [];
+
+        function setPolyline(_path) {
+            polyline.push(new google.maps.Polyline({
+                //map: map,
+                path: _path,
+                strokeColor: '#000000',
+                strokeOpacity: 1,
+                strokeWeight: 3
+            }));
+            polyline[polyline.length - 1].setMap(map);
+        }
+        function removePolyline() {
+            if (typeof polyline !== 'undefined') {
+                for (var index in polyline) {
+                    polyline[index].setMap(null);
+
+                }
+                polyline = [];
+            }
+        }
+
+        var mapDiv = document.getElementById('map');
+        var mapCenter = new google.maps.LatLng(59.334591, 18.063240);
+        var mapOptions = {
+            zoom: 6,
+            center: mapCenter,
+            backgroundColor: '#E1E1E1',
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(mapDiv, mapOptions);
 
         function convertTime(n) {
             var num = n;
@@ -382,27 +339,7 @@
             else
                 return rminutes + " min";
         }
-        
-        /*function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: { lat: 59.33258, lng: 18.0649 }
-            });*/
 
-            /*var transportPath = new google.maps.Polyline({
-                path: google.maps.geometry.encoding.decodePath(),
-                geodesic: true,
-                strokeColor: '#FF0000',
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-            })*/
-
-        //transportPath.setMap(map);
-
-        //}
-
-    </script>
-    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnDF77c4DZf_Qaq2Y8n8j5gXvge6YuHFk&callback=initMap">-->
     </script>
 </body>
 
