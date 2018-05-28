@@ -1,129 +1,142 @@
-<section id="cities" class="cities sections">
-    <div class="custom-container">
-        <div class="heading text-center">
+<section id="cities" class="lightbg sections">
+    <div class="container-fluid text-center">
+        <div class="heading">
             <h1>The cities</h1>
             <div class="separator"></div>
         </div>
+        
+            <div class="row" >
 
-        <div class="row">
-            <div class="col-md-12" data-wow-delay="0.5s">
-                <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-                    <ol class="carousel-indicators">
+                <div class="col-xs-4">
+                    <h3 data-target="#quote-carousel" data-slide-to="0" style="margin-left:auto; font-size:28px;" >Falun</h3>
 
-                        <li data-target="#quote-carousel" data-slide-to="0" class="active">
-                            <img class="img-responsive" src="https://pictures.europeandestinations.com/images/packages/sweden/stockholm-aerialview500.jpg" alt="Stockholm">
-                        </li>
+                </div>
+                <div class="col-xs-4">
+                    <h3 data-target="#quote-carousel" data-slide-to="1" class="active" style="font-size:28px;">Stockholm</h3>
 
-                        <li data-target="#quote-carousel" data-slide-to="1">
-                            <img class="img-responsive" src="https://static0.tiendeo.se/galeria/poblacion/Falun/falun-048-70891228-jpg.jpg" alt="Falun">
-                        </li>
+                </div>
+                <div class="col-xs-4">
+                    <h3 data-target="#quote-carousel" data-slide-to="2" style="margin-right:auto; font-size:28px;">Åre</h3>
 
-                        <li data-target="#quote-carousel" data-slide-to="2">
-                            <img class="img-responsive" src="https://www.bokadirekt.se/DisplayMediaFile.axd?id=396690" alt="Åre">
-                        </li>
-                    </ol>
+                </div>
+            </div>
+        
 
-                    <div class="carousel-inner text-center margin-top-60">
-                       
-                        <!-- 
-                        <div ng-include="'assets/cities/city-stockholm.html'"></div>
-                        <div ng-include="'assets/cities/city-falun.html'"></div>
-                        <div ng-include="'assets/cities/city-are.html'"></div>
-                        -->
 
-                        <!-- STOCKhOLM -->
-                        <div class="item active">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3 details">
-                                    <p>
-                                        <strong>Stockholm</strong>
-                                    </p>
-                                    <br>
-                                    <p>
-                                        Stockholm is the capital of Sweden, it has over 2 million residents.
-                                        The city was built on 14 islands, connected by 57 bridges, earning the Swedish capital the nickname "Beauty on the Water".
-                                    </p>
-                                    <!--
-                                    <small>
-                                        <button id="BtnSthlm">Tourist Attractions</button>
-                                        <div id="sthlmModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <p>STOCKHOLM</p>
-                                            </div>
-                                        </div>
-                                    </small>
-                                    -->
-                                </div>
+        <div class="spacer1"></div>
+        <div class="col-md-12 col-sm-6" data-wow-delay="0.5s">
+            <div class="carousel slide" data-ride="carouseln" id="quote-carousel">
+                <ol class="carousel-indicators text-center" style="margin-bottom:10px;">
+
+
+                    <li data-target="#quote-carousel" data-slide-to="0">
+                        <img class="img-responsive" src="https://static0.tiendeo.se/galeria/poblacion/Falun/falun-048-70891228-jpg.jpg" alt="Falun">
+                    </li>
+
+                    <li style="margin-left:10%; margin-right:10%;" data-target="#quote-carousel" data-slide-to="1" class="active">
+
+                        <img class="img-responsive" src="https://pictures.europeandestinations.com/images/packages/sweden/stockholm-aerialview500.jpg"
+                            alt="Stockholm">
+                    </li>
+
+                    <li  data-target="#quote-carousel" data-slide-to="2">
+                        <img class="img-responsive" src="https://www.bokadirekt.se/DisplayMediaFile.axd?id=396690" alt="Åre">
+                    </li>
+
+                </ol>
+                
+                <div class="carousel-inner text-center">
+                          
+                    <div class="item">
+                        <div class="spacer2"></div> 
+                        <div class="row">
+                            
+                            <div class="col-sm-6 col-sm-offset-3 details" style= "padding-left:5px;">
+                                    
+                                <h3>
+                                    <strong>
+                                        Falun
+                                    </strong>
+                                </h3>
+                                
+                                <h4>Cross Country & Ski jumping</h4>
+                                <div class="separator2"></div>
+                                <p>Falun is known for having beautiful nature and residents with a passion for skiing. The
+                                    city is relatively small with just under 40 000 residents but at the same time very
+                                    active.
+                                </p>
+
+
+                                <a href="#" class="btn-lg btn-primary btn" data-toggle="modal" data-target="#falunModal">
+                                    <h4 class="TouristButton">
+                                        Tourist Attractions
+                                    </h4>
+                                </a>
+
+
                             </div>
                         </div>
+                    </div>
 
-                        <!-- FALUN -->
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3 details">
-                                    <p>
-                                        <strong>Falun</strong>
-                                    </p>
-                                    <br>
-                                    <p>
-                                        Falun is known for having beautiful nature and residents with a passion for skiing.
-                                        The city is relatively small with just under 40 000 residents but at the same time very active.
-                                    </p>
-                                    <!-- MODAL -->
-                                    <!--
-                                    <small>
-                                        <button id="BtnSthlm">Tourist Attractions</button>
-                                        <div id="sthlmModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <p>STOCKHOLM</p>
-                                            </div>
-                                        </div>
-                                    </small>
-                                    -->
-                                </div>
+                     
+                    <div class="item active">
+                            <div class="spacer2"></div> 
+                        <div class="row">
+
+                            <div class="col-sm-6 col-sm-offset-3 details">
+
+                                <h3>
+                                    <strong>
+                                        Stockholm
+                                    </strong>
+                                </h3>
+                                
+                                <h4>The Capital</h4>
+                                <div class="separator2"></div>
+                                <p>
+                                    Stockholm is the capital of Sweden, it has over 2 million residents. The city was built on 14 islands, connected by 57 bridges,
+                                    earning the Swedish capital the nickname "Beauty on the Water".
+                                </p>
+
+                                <a href="#" class="btn-lg btn-primary btn" data-toggle="modal" data-target="#sthlmModal">
+                                    <h4 class="TouristButton">
+                                        Tourist Attractions
+                                    </h4>
+                                </a>
+
                             </div>
                         </div>
+                    </div>
 
-                        <!-- ÅRE -->
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3 details">
-                                    <p>
-                                        <strong>Åre</strong>
-                                    </p>
-                                    <br>
-                                    <p>
-                                        Åre is our #1 ski-resort here in Sweden. It attracts tourists who just wants
-                                        to ski for fun aswell as elite skiers. Åre has so far hosted 2 World championships and 100 world cup races.
-                                    </p>
-                                    <!-- MODAL -->
-                                    <!--
-                                    <small>
-                                        <button id="BtnSthlm">Tourist Attractions</button>
-                                        <div id="sthlmModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <p>STOCKHOLM</p>
-                                            </div>
-                                        </div>
-                                    </small>
-                                    -->
-                                </div>
+                    <div class="item">
+                            <div class="spacer2"></div> 
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3 details">
+                                <h3>
+                                    <strong>
+                                        Åre
+                                    </strong>
+                                </h3>
+                                <br>
+                                <h4>The alpine center</h4>
+                                <div class="separator2"></div>
+                                <p>Åre is our #1 ski-resort here in Sweden. It attracts tourists who just wants to ski for
+                                    fun aswell as elite skiers. Åre has so far hosted 2 World championships and 100 world
+                                    cup races.
+                                </p>
+
+                                <a href="#" class="btn-lg btn-primary btn" data-toggle="modal" data-target="#areModal">
+                                        <h4 class="TouristButton">
+                                            Tourist Attractions
+                                        </h4>
+                                    </a>
+
                             </div>
                         </div>
-                        <!--
-                        <a data-slide="prev" href="#quote-carousel" class="left carousel-control">
-                            <i class="fa fa-chevron-left"></i>
-                        </a>
-                        <a data-slide="next" href="#quote-carousel" class="right carousel-control">
-                            <i class="fa fa-chevron-right"></i>
-                        </a>
-                        -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </section>

@@ -30,6 +30,18 @@ THESE THINGS HERE CHANGE THE STYLE AND RESPONSIVE FILE
         margin-right: 10px;
     }
 }
+h4.TouristButton{
+    font-weight: 900;
+    font-size: 20px;
+    color:#FFCD00
+}
+.spacer1{
+    padding-bottom:7vh;
+}
+.spacer2{
+    margin-top:5vh;
+    
+}
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover{
     color: rgb(218, 201, 136);
