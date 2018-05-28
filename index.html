@@ -72,21 +72,13 @@
                             <option value="Falun, Sweden">Falun</option>
                         </select>
                     </div>
-                    <!--
-                    <div class="form-group">
-                        <label class="col-form-label">Currency</label>
-                        <select class="form-control" id="currency">
-                            <option value="SEK">SEK</option>
-                            <option value="USD">USD</option>
-                        </select>
-                    </div>
-                    -->
+
                     <button id="submit-button" type="submit" class="submit">
                         <strong>Go</strong>
                     </button>
                 </form>
             </div>
-            <div id="location-output"></div>
+            <div id="error-output"></div>
 
         </div>
         <div id="output">
@@ -110,7 +102,7 @@
     <script src="assets/js/jquery.magnific-popup.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <!-- SCRIPT FÖR RESESÖKNING-->
+    <!-- SCRIPT FÖR RESESÖKNING -->
 
     <script>
         var locationForm = document.getElementById('location-form');
@@ -134,10 +126,13 @@
             //map = new google.maps.Map(mapDiv, mapOptions);
 
             var currencyCode;
-            var userLang = navigator.language || navigator.userLanguage; 
+            var userLang = navigator.language || navigator.userLanguage;
 
-            if(userLang == "sv-SE"){
+            if (userLang == "sv-SE") {
                 currencyCode = "SEK";
+            }
+            else {
+                currencyCode = "USD";
             }
 
             var location = document.getElementById('location-input').value;
@@ -153,7 +148,21 @@
             })
                 .then(function (response) {
 
+                    document.getElementById('error-output').innerHTML = '';
+
                     console.log(response);
+                    removePolyline();
+
+                    placesList = response.data.places;
+
+                    var lat1, lng1, lat2, lng2;
+                    lat1 = placesList[0].lat;
+                    lng1 = placesList[0].lng;
+                    lat2 = placesList[1].lat;
+                    lng2 = placesList[1].lng;
+
+                    calculateMidpoint(lat1, lng1, lat2, lng2);
+                    setZoom(calculateDistance(lat1, lng1, lat2, lng2));
 
                     showRoutes('all-routes', '', '');
 
@@ -197,7 +206,7 @@
                             </h5>
                             `;
 
-                            allOutput += `
+                                allOutput += `
                             <p class="transport-time color-black"><b>`;
 
                                 if (typeof routesList[i].indicativePrices !== 'undefined') {
@@ -211,11 +220,11 @@
                             <br>
                             <b>`;
                                 if (typeof routesList[i].indicativePrices !== 'undefined') {
-                                    if( currencyCode !== "SEK"){
+                                    if (currencyCode !== "SEK") {
                                         allOutput += '$';
                                     }
                                     allOutput += `${totalPrice}`;
-                                    if( currencyCode == "SEK"){
+                                    if (currencyCode == "SEK") {
                                         allOutput += ' kr';
                                     }
                                 }
@@ -228,7 +237,6 @@
                         `;
 
                                 segmentsList = response.data.routes[i].segments;
-                                placesList = response.data.places;
                                 vehiclesList = response.data.vehicles;
 
                                 for (var j = 0; j < segmentsList.length; j++) {
@@ -262,11 +270,26 @@
 
                         document.getElementById(divRoutes).innerHTML = allOutput;
 
+                        if(routesList.length == 0){
+                            var errorOutput = `
+                                <div class="alert alert-danger error-text" role="alert">
+                                Found no routes from ${location}
+                                </div>`;
+                            document.getElementById('error-output').innerHTML = errorOutput;
+                        }
+
                     }
 
                 })
                 .catch(function (error) {
                     console.log(error);
+
+                    var errorOutput = `
+                        <div class="alert alert-danger error-text" role="alert">
+                        <strong>Error.</strong> Can't find ${location}
+                        </div>`;
+                    document.getElementById('error-output').innerHTML = errorOutput;
+
                 })
         }
 
@@ -304,6 +327,7 @@
             }));
             polyline[polyline.length - 1].setMap(map);
         }
+
         function removePolyline() {
             if (typeof polyline !== 'undefined') {
                 for (var index in polyline) {
@@ -314,16 +338,106 @@
             }
         }
 
+        var stockholm = { lat: 59.334591, lng: 18.063240 };
         var mapDiv = document.getElementById('map');
-        var mapCenter = new google.maps.LatLng(59.334591, 18.063240);
+        var mapCenter;
+        var zoom = 4;
+        mapCenter = stockholm;
         var mapOptions = {
-            zoom: 6,
+            zoom: zoom,
+            maxZoom: 13,
+            minZoom: 2,
             center: mapCenter,
             backgroundColor: '#E1E1E1',
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         map = new google.maps.Map(mapDiv, mapOptions);
 
+        /* Using Haversine Formula to calculate the midpoint between two positions */
+        if (typeof (Number.prototype.toRad) === "undefined") {
+            Number.prototype.toRad = function () {
+                return this * Math.PI / 180;
+            }
+        }
+
+        if (typeof (Number.prototype.toDeg) === "undefined") {
+            Number.prototype.toDeg = function () {
+                return this * (180 / Math.PI);
+            }
+        }
+        function calculateMidpoint(lat1, lng1, lat2, lng2) {
+            var dLng = (lng2 - lng1).toRad();
+
+            lat1 = lat1.toRad();
+            lat2 = lat2.toRad();
+            lng1 = lng1.toRad();
+
+            var bX = Math.cos(lat2) * Math.cos(dLng);
+            var bY = Math.cos(lat2) * Math.sin(dLng);
+            var lat3 = Math.atan2(Math.sin(lat1) + Math.sin(lat2), Math.sqrt((Math.cos(lat1) + bX) * (Math.cos(lat1) + bX) + bY * bY));
+            var lng3 = lng1 + Math.atan2(bY, Math.cos(lat1) + bX);
+            lat3 = lat3.toDeg();
+            lng3 = lng3.toDeg();
+
+            var center = new google.maps.LatLng(lat3, lng3);
+
+            map.panTo(center);
+        }
+
+        /* Using Haversine Formula to calculate the distance between two postions */
+        function calculateDistance(lat1, lng1, lat2, lng2) {
+            var R = 6371; //Jordens radie i km
+
+            var dLat = (lat2 - lat1).toRad();
+            var dLng = (lng2 - lng1).toRad();
+
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+                Math.sin(dLng / 2) * Math.sin(dLng / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var distance = R * c;
+
+            console.log(distance);
+
+            return distance;
+        }
+
+        function setZoom(distance) {
+            var _zoom = 4;
+
+            if (distance < 50) {
+                _zoom = 10;
+            }
+            else if (distance < 100) {
+                _zoom = 9;
+            }
+            else if (distance < 255) {
+                _zoom = 8;
+            }
+            else if (distance < 500) {
+                _zoom = 7;
+            }
+            else if (distance < 700) {
+                _zoom = 6;
+            }
+            else if (distance < 1000) {
+                _zoom = 5;
+            }
+            else if (distance < 2000) {
+                _zoom = 5;
+            }
+            else if (distance > 5600) {
+                _zoom = 3;
+            }
+            if (distance > 9500) {
+                _zoom = 2;
+            }
+
+            console.log(_zoom);
+            map.setZoom(_zoom);
+        }
+
+        /* convert minutes into hours and minutes */
         function convertTime(n) {
             var num = n;
             var hours = (num / 60);

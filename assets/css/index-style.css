@@ -82,6 +82,9 @@
 h5{
     font-size: 1.15rem;
 }
+.error-text{
+    text-align: center;
+}
 
 /* Responsive */
 @media only screen and (max-height: 900px){
