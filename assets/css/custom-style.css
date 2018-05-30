@@ -266,15 +266,3 @@ SCHEMA
 .icon-sport{
     
 }
-
-
-/*
--------
-FOOTER
--------
-*/
-
-footer{
-    background: -webkit-linear-gradient(left, #c8dffa, rgb(121, 191, 226));
-  background: linear-gradient(to up, #c8dffa, rgb(121, 191, 226));
-}
