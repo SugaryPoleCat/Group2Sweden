@@ -1,19 +1,71 @@
 "use strict";
 
 
+
+
+function myFunction() { // Hides the content under the button
+    var x = document.getElementById("myDiv"); 
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+
+    document.getElementById("bottom").scrollIntoView(); // Jump down a page when the button is clicked
+}
+
+$(document).ready(function() {
+
+	// $('.image-popup-vertical-fit').magnificPopup({
+	// 	type: 'image',
+	// 	closeOnContentClick: true,
+	// 	mainClass: 'mfp-img-mobile',
+	// 	image: {
+	// 		verticalFit: true
+	// 	}
+		
+	// });
+
+	// $('.image-popup-fit-width').magnificPopup({
+	// 	type: 'image',
+	// 	closeOnContentClick: true,
+	// 	image: {
+	// 		verticalFit: false
+	// 	}
+	// });
+
+	$('.image-popup-no-margins').magnificPopup({
+		type: 'image',
+		closeOnContentClick: true,
+		closeBtnInside: false,
+		fixedContentPos: true,
+		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+		image: {
+			verticalFit: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300 // don't foget to change the duration also in CSS
+		}
+	});
+
+});
+
+
+
 jQuery(document).ready(function ($) {
-
-
+	
+	
 	/*---------------------------------------------*
      * Preloader
      ---------------------------------------------*/
-
-    $(window).load(function () {
-        $(".loaded").fadeOut();
-        $(".preloader").delay(1000).fadeOut("slow");
-    });
-
-
+	 
+	$(window).load(function () {
+		$(".loaded").fadeOut();
+		$(".preloader").delay(1000).fadeOut("slow");
+	});
+	
+	
     /*---------------------------------------------*
      * Mobile menu
      ---------------------------------------------*/
@@ -60,8 +112,8 @@ jQuery(document).ready(function ($) {
         $('.filters-button-group').on('click', 'button', function () {
             var filterValue = $(this).attr('data-filter');
             // use filterFn if matches value
-            filterValue = filterFns[filterValue] || filterValue;
-            $grid.isotope({ filter: filterValue });
+            filterValue = filterFns[ filterValue ] || filterValue;
+            $grid.isotope({filter: filterValue});
         });
         // change is-checked class on buttons
         $('.button-group').each(function (i, buttonGroup) {
@@ -86,7 +138,7 @@ jQuery(document).ready(function ($) {
     });
 
     $('.scrollup').click(function () {
-        $("html, body").animate({ scrollTop: 0 }, 1000);
+        $("html, body").animate({scrollTop: 0}, 1000);
         return false;
     });
 
@@ -121,7 +173,7 @@ jQuery(document).ready(function ($) {
      ---------------------------------------------*/
 
     $.localScroll();
-
+    
     /*---------------------------------------------*
      * Gallery Pop Up Animation
      ---------------------------------------------*/
@@ -139,10 +191,10 @@ jQuery(document).ready(function ($) {
      * Counter 
      ---------------------------------------------*/
 
-    //    $('.statistic-counter').counterUp({
-    //        delay: 10,
-    //        time: 2000
-    //    });
+//    $('.statistic-counter').counterUp({
+//        delay: 10,
+//        time: 2000
+//    });
 
 
 
@@ -151,10 +203,10 @@ jQuery(document).ready(function ($) {
      * WOW
      ---------------------------------------------*/
 
-    //        var wow = new WOW({
-    //            mobile: false // trigger animations on mobile devices (default is true)
-    //        });
-    //        wow.init();
+//        var wow = new WOW({
+//            mobile: false // trigger animations on mobile devices (default is true)
+//        });
+//        wow.init();
 
 
     /* ---------------------------------------------------------------------
@@ -187,30 +239,114 @@ jQuery(document).ready(function ($) {
         }
 
     });
-    //fixade scrollen till hemsidan
+//fixade scrollen till hemsidan
 
-    $(function () {
-        $('a[href*="#"]:not([href="#"])').click(function () {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
+    $(function() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html, body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
             }
+          }
         });
-    });
-
-    $("button").click(function () {
-        $('html,body').animate({
-            scrollTop: $("#submit-button").offset().top
-        },
-            'slow');
-    });
+      });
 
 
     //End
 });
+
+/*
+//sthlm modal
+var modal = document.getElementById('sthlmModal');
+var btn = document.getElementById("BtnSthlm");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+//falun modal
+var modal1 = document.getElementById('falunModal');
+var btn1 = document.getElementById("BtnFalun");
+var span1 = document.getElementsByClassName("close1")[0];
+
+btn1.onclick = function() {
+    modal1.style.display = "block";
+}
+span1.onclick = function() {
+    modal1.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+};
+
+
+//Åre modal
+var modal2 = document.getElementById('areModal');
+var btn2 = document.getElementById("BtnAre");
+var span2 = document.getElementsByClassName("close2")[0];
+
+btn2.onclick = function() {
+    modal2.style.display = "block";
+}
+span2.onclick = function() {
+    modal2.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+};
+
+//pausar carousellen när modalen e uppe
+$('.modal').on('shown.bs.modal', function (e) {
+    $('.carousel').carousel('pause');
+})
+$('.modal2').on('shown.bs.modal2', function (e) {
+    $('.carousel').carousel('pause');
+})
+$('.modal1').on('shown.bs.modal1', function (e) {
+    $('.carousel').carousel('pause');
+})*/
+
+$(function () {
+		
+	var filterList = {
+	
+		init: function () {
+		
+			// MixItUp plugin
+			// http://mixitup.io
+			$('#portfoliolist').mixItUp({
+				selectors: {
+  			  target: '.portfolio',
+  			  filter: '.filter'	
+  		  },
+  		  load: {
+    		  filter: '.app' // show app tab on first load
+    		}     
+			});								
+		
+		}
+
+	};
+	
+	// Run the show!
+	filterList.init();
+	
+});		
