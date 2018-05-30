@@ -458,7 +458,7 @@ textarea::-ms-input-placeholder
 .navbar {
     min-height: 50px;
     margin-bottom: 20px;
-    padding: 15px 0;
+    padding: 9px 0;
 }
 .navbar-default .navbar-nav>li>a {
     color: #ffffff;
@@ -780,9 +780,9 @@ textarea::-ms-input-placeholder
         list-style:none;
     }
     
-        #filters li {
-            /* float:left; */
-        }
+        /* #filters li {
+            float:left;
+        } */
         
         #filters li span {
             display: block;
