@@ -269,7 +269,7 @@ SCHEMA
 }
 .schema{
     background: -webkit-linear-gradient(left, #b3d3f8, #25b7c4);
-    background: linear-gradient(to right, #b7cde6, rgb(129, 191, 223));
+    background: linear-gradient(to right, #b7cde6, rgb(157, 202, 224));
     /*font-family: 'Roboto', sans-serif;*/
 }
 .schema-heading{
@@ -304,5 +304,6 @@ CORE
 h2{
     font-size: 24px;
     margin-top: 10px;
-    
+    color: #444;
+    font-weight: 900;
 }
