@@ -212,7 +212,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    //End
+    
 
 $(function () {
 		
@@ -238,5 +238,8 @@ $(function () {
 	
 	// Run the show!
 	filterList.init();
-	
-});});		
+    
+    
+});
+//End
+});		
