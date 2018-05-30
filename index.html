@@ -47,7 +47,42 @@
 </head>
 
 <body data-spy="scroll" data-target="#main_navbar" ng-app="">
-    <div ng-include="'nav.html'"></div>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class='preloader'>
+    <div class='loaded'>&nbsp;</div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inner" id="main_navbar">
+        
+    <div class="container-fluid custom-container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand" href="index.html"><img src="assets/images/Logga.png" alt="logo" /></a>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#home">Home</a></li>
+                <!--  <li><a href="#service">Services</a></li> -->
+                <li><a href="#directions">Directions</a></li>
+                <li><a href="#schema">Schedule</a></li>
+                <li><a href="#cities">The cities</a></li>
+                <!-- <li><a href="#testimonial">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li> -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
     <!--Home page style-->
     <div ng-include="'home.html'"></div>
 
@@ -91,8 +126,25 @@
     <div ng-include="'section-schema.html'"></div>
     <div ng-include="'section-city.html'"></div>
     <!--Footer-->
-    <div ng-include="'footer.html'"></div>
-
+    
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="scroll-top">
+                <div class="scrollup">
+                    <i class="fa fa-angle-up"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="copyright">
+                        <p>&copy; 2018 GRUPP 2</p>
+                        <p>Created by some 5 dudes.</p>
+                        <p>Please don't contact us. We don't use email. We don't use browser. We don't use internet. Please respect our privacy and internet free lives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- IMPORTANT DONT MOVE OR LOADE WONT WORK -->
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>
