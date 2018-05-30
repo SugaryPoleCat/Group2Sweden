@@ -426,10 +426,11 @@
         }
         var map = new google.maps.Map(mapDiv, mapOptions);
 
-        function setMarker(pos) {
+        function setMarker(pos, title) {
             var marker = new google.maps.Marker({
                 position: pos,
-                map: map
+                map: map,
+                title: title
             });
             markers.push(marker);
         }
@@ -448,9 +449,9 @@
             clearMarkers();
             markers = [];
         }
-        setMarker(stockholm);
-        setMarker(falun);
-        setMarker(are);
+        setMarker(stockholm, 'Stockholm');
+        setMarker(falun, 'Falun');
+        setMarker(are, 'Åre');
 
         /* Using Haversine Formula to calculate the midpoint between two positions */
         if (typeof (Number.prototype.toRad) === "undefined") {
