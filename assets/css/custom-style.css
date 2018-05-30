@@ -113,17 +113,22 @@ SECTIONS
 
  /* CITIES*/
 .cities{
-    background-color: #f9f9ff;
+    
+    
 }
 #cities{
-
+    /*background-color: #f9f9ff;*/
+    background: -webkit-linear-gradient(left, #b3d3f8, #25b7c4);
+    background: linear-gradient(to right, #faf5df, rgb(255, 241, 178));
 }
 /* DIRECTIONS */
 .directions{
-
+    
 }
 #directions{
-    background-color: #f9f9ff;
+    /*background-color: #f9f9ff;*/
+    background: -webkit-linear-gradient(left, #b3d3f8, #25b7c4);
+    background: linear-gradient(to right, #faf5df, rgb(255, 241, 178));
 }
 /* OLYMPIC SCHEMA */
 .schema{
@@ -247,12 +252,26 @@ SCHEMA
     color: #fff;
     border-bottom: solid 1px rgba(0,0,0,0.1);
 }
-
 .schema{
   background: -webkit-linear-gradient(left, #b3d3f8, #25b7c4);
-  background: linear-gradient(to right, #689ad4, #00669A);
+  background: linear-gradient(to right, #b7cde6, rgb(129, 191, 223));
   font-family: 'Roboto', sans-serif;
 }
 .schema-heading{
     color: #fff;
+}
+.icon-sport{
+    
+}
+
+
+/*
+-------
+FOOTER
+-------
+*/
+
+footer{
+    background: -webkit-linear-gradient(left, #c8dffa, rgb(121, 191, 226));
+  background: linear-gradient(to up, #c8dffa, rgb(121, 191, 226));
 }
