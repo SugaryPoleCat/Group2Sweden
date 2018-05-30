@@ -7,192 +7,193 @@
 <!--<![endif]-->
 
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnDF77c4DZf_Qaq2Y8n8j5gXvge6YuHFk&libraries=places,geometry&language=EN"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnDF77c4DZf_Qaq2Y8n8j5gXvge6YuHFk&libraries=places,geometry&language=EN"></script>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Go2Sweden</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Go2Sweden</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-<!--For Plugins external css-->
-<link rel="stylesheet" href="assets/css/plugins.css" />
-<link rel="stylesheet" href="assets/css/lora-web-font.css" />
-<link rel="stylesheet" href="assets/css/opensans-web-font.css" />
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+    <link rel="stylesheet" href="assets/css/lora-web-font.css" />
+    <link rel="stylesheet" href="assets/css/opensans-web-font.css" />
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
 
-<!--Theme custom css -->
-<link rel="stylesheet" href="assets/css/style.css">
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-<!--Theme Responsive css-->
-<link rel="stylesheet" href="assets/css/responsive.css" />
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<link rel="stylesheet" href="assets/css/index-style.css" />
-<link rel="stylesheet" href="assets/css/custom-style.css" />
+    <link rel="stylesheet" href="assets/css/index-style.css" />
+    <link rel="stylesheet" href="assets/css/custom-style.css" />
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
 <body data-spy="scroll" data-target="#main_navbar" ng-app="">
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class='preloader'>
-    <div class='loaded'>&nbsp;</div>
-</div>
-<nav class="navbar navbar-default navbar-fixed-top navbar-inner" id="main_navbar">
-<div class="container-fluid custom-container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <a class="navbar-brand" href="index.html">
-        <img src="assets/images/Logga.png" alt="logo" />
-    </a>
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+    <div class='preloader'>
+        <div class='loaded'>&nbsp;</div>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="mobile-menu">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="#home">Home</a>
-            </li>
-            <!--  <li><a href="#service">Services</a></li> -->
-            <li>
-                <a href="#directions">Directions</a>
-            </li>
-            <li>
-                <a href="#schema">Schedule</a>
-            </li>
-            <li>
-                <a href="#cities">The cities</a>
-            </li>
-            <!-- <li><a href="#testimonial">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li> -->
-        </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-</div>
-<!-- /.container-fluid -->
-</nav>
-<!--Home page style-->
-<div ng-include="'home.html'"></div>
-
-<section id="directions" class="directions sections">
-    <div class="custom-container">
-        <div class="heading text-center">
-            <h1>Travel to Sweden</h1>
-            <div class="separator"></div>
-        </div>
-        <div class="form-container">
-
-            <form id="location-form">
-                <div class="form-group">
-                    <label class="col-form-label">From</label>
-                    <input type="text" class="form-control" placeholder="From" name="from" id="location-input" required>
-                </div>
-                <div class="form-group">
-                    <label class="col-form-label">To</label>
-                    <select class="category form-control" id="destination-input" required>
-                        <option value="Stockholm, Sweden">Stockholm</option>
-                        <option value="Åre, Sweden">Åre</option>
-                        <option value="Falun, Sweden">Falun</option>
-                    </select>
-                </div>
-
-                <button id="submit-button" type="submit" class="submit">
-                    <strong>Go</strong>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inner" id="main_navbar">
+        <div class="container-fluid custom-container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/Logga.png" alt="logo" />
+            </a>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-            </form>
-        </div>
-        <div id="error-output"></div>
-    </div>
-    <div id="output">
-        <div id="all-routes"></div>
-        <div id="map"></div>
-    </div>
-    <div id="loading" style="display: none;">
-        <img id="loading-image" src="assets/images/loading.gif" alt="Loading..." />
-    </div>
-</section>
-
-<div ng-include="'section-schema.html'"></div>
-<div ng-include="'section-city.html'"></div>
-
-<!--Footer-->
-<footer id="footer" class="footer">
-    <div class="custom-container">
-        <div class="scroll-top">
-            <div class="scrollup">
-                <i class="fa fa-angle-up"></i>
             </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="mobile-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <!--  <li><a href="#service">Services</a></li> -->
+                    <li>
+                        <a href="#directions">Directions</a>
+                    </li>
+                    <li>
+                        <a href="#schema">Schedule</a>
+                    </li>
+                    <li>
+                        <a href="#cities">The cities</a>
+                    </li>
+                    <!-- <li><a href="#testimonial">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div class="row">
-            <div>
-                <div class="copyright">
-                    <p>&copy; 2018 GRUPP 2</p>
+        <!-- /.container-fluid -->
+    </nav>
+    <!--Home page style-->
+    <div ng-include="'home.html'"></div>
+
+    <section id="directions" class="directions sections">
+        <div class="custom-container">
+            <div class="heading text-center">
+                <h1>Travel to Sweden</h1>
+                <div class="separator"></div>
+            </div>
+            <div class="form-container">
+
+                <form id="location-form">
+                    <div class="form-group">
+                        <label class="col-form-label">From</label>
+                        <input type="text" class="form-control" placeholder="From" name="from" id="location-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">To</label>
+                        <select class="category form-control" id="destination-input" required>
+                            <option value="Stockholm, Sweden">Stockholm</option>
+                            <option value="Åre, Sweden">Åre</option>
+                            <option value="Falun, Sweden">Falun</option>
+                        </select>
+                    </div>
+
+                    <button id="submit-button" type="submit" class="submit">
+                        <strong>Go</strong>
+                    </button>
+                </form>
+            </div>
+            <div id="error-output"></div>
+        </div>
+        <div id="output">
+            <div id="all-routes"></div>
+            <div id="map"></div>
+        </div>
+        <div id="loading" style="display: none;">
+            <img id="loading-image" src="assets/images/loading.gif" alt="Loading..." />
+        </div>
+    </section>
+
+    <div ng-include="'section-schema.html'"></div>
+    <div ng-include="'section-city.html'"></div>
+
+    <!--Footer-->
+    <footer id="footer" class="footer">
+        <div class="custom-container">
+            <div class="scroll-top">
+                <div class="scrollup">
+                    <i class="fa fa-angle-up"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <div class="copyright">
+                        <p>&copy; 2018 GRUPP 2</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- IMPORTANT DONT MOVE OR LOAD WONT WORK -->
-<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-<script src="assets/js/vendor/bootstrap.min.js"></script>
-<script src="assets/js/vendor/isotope.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/jquery.magnific-popup.js"></script>
-<script src="assets/js/main.js"></script>
+    <!-- IMPORTANT DONT MOVE OR LOAD WONT WORK -->
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/isotope.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <script src="assets/js/main.js"></script>
 
-<!-- SCRIPT FÖR RESESÖKNING -->
-<script>
-    var locationForm = document.getElementById('location-form');
+    <!-- SCRIPT FÖR RESESÖKNING -->
+    <script>
+        var locationForm = document.getElementById('location-form');
 
-    var locationInput = document.getElementById('location-input');
-    var autocomplete = new google.maps.places.Autocomplete(locationInput);
+        var locationInput = document.getElementById('location-input');
+        var autocomplete = new google.maps.places.Autocomplete(locationInput);
 
-    locationForm.addEventListener('submit', geocode);
+        locationForm.addEventListener('submit', geocode);
 
-    var routesList;
-    var totalTimeMin;
-    var segmentTimeMin;
-    var totalPrice;
-    var placesList;
-    var vehiclesList;
-    var segmentsList;
+        var routesList;
+        var totalTimeMin;
+        var segmentTimeMin;
+        var totalPrice;
+        var placesList;
+        var vehiclesList;
+        var segmentsList;
 
-    function geocode(e) {
-        e.preventDefault();
+        function geocode(e) {
+            e.preventDefault();
 
-        $('#loading').show();
+            $('#loading').show();
 
-        var currencyCode;
-        var userLang = navigator.language || navigator.userLanguage;
+            var currencyCode;
+            var userLang = navigator.language || navigator.userLanguage;
 
-        if (userLang == "sv-SE") {
-            currencyCode = "SEK";
-        } else {
-            currencyCode = "USD";
-        }
+            if (userLang == "sv-SE") {
+                currencyCode = "SEK";
+            } else {
+                currencyCode = "USD";
+            }
 
-        var location = document.getElementById('location-input').value;
+            var location = document.getElementById('location-input').value;
 
-        var destination = document.getElementById('destination-input').value;
-        axios.get('http://free.rome2rio.com/api/1.4/json/Search', {
+            var destination = document.getElementById('destination-input').value;
+            axios.get('http://free.rome2rio.com/api/1.4/json/Search', {
                 params: {
                     key: 'S2Q8spaR',
                     oName: location,
@@ -200,101 +201,106 @@
                     currencyCode: currencyCode
                 }
             })
-            .then(function(response) {
+                .then(function (response) {
 
-                $('#loading').hide();
+                    $('#loading').hide();
 
-                document.getElementById('error-output').innerHTML = '';
+                    document.getElementById('error-output').innerHTML = '';
 
-                console.log(response);
-                removePolyline();
-                deleteMarkers();
+                    console.log(response);
+                    removePolyline();
+                    deleteMarkers();
 
-                placesList = response.data.places;
+                    placesList = response.data.places;
 
-                var lat1, lng1, lat2, lng2;
-                lat1 = placesList[0].lat;
-                lng1 = placesList[0].lng;
-                lat2 = placesList[1].lat;
-                lng2 = placesList[1].lng;
+                    var lat1, lng1, lat2, lng2;
+                    lat1 = placesList[0].lat;
+                    lng1 = placesList[0].lng;
+                    if (typeof placesList[1] !== 'undefined') {
+                        lat2 = placesList[1].lat;
+                        lng2 = placesList[1].lng;
+                    } else {
+                        lat2 = lat1;
+                        lng2 = lng1;
+                    }
 
-                calculateMidpoint(lat1, lng1, lat2, lng2);
-                setZoom(calculateDistance(lat1, lng1, lat2, lng2));
-                /* Sets a marker at location and destination */
-                var pos1 = {
-                    lat: lat1,
-                    lng: lng1
-                };
-                var pos2 = {
-                    lat: lat2,
-                    lng: lng2
-                };
-                setMarker(pos1);
-                setMarker(pos2);
+                    calculateMidpoint(lat1, lng1, lat2, lng2);
+                    setZoom(calculateDistance(lat1, lng1, lat2, lng2));
+                    /* Sets a marker at location and destination */
+                    var pos1 = {
+                        lat: lat1,
+                        lng: lng1
+                    };
+                    var pos2 = {
+                        lat: lat2,
+                        lng: lng2
+                    };
+                    setMarker(pos1);
+                    setMarker(pos2);
 
-                showRoutes();
+                    showRoutes();
 
-                function showRoutes() {
+                    function showRoutes() {
 
-                    routesList = response.data.routes;
+                        routesList = response.data.routes;
 
-                    var allOutput = `<div class="tabacc">`;
+                        var allOutput = `<div class="tabacc">`;
 
-                    for (var i = 0; i < routesList.length; i++) {
+                        for (var i = 0; i < routesList.length; i++) {
 
-                        allOutput += `
+                            allOutput += `
                                 <div id="div${i}">
                                 <input id="${i}" type="radio" name="tabs" onclick="writePath(${i});">
                                 <label class="label-item" for="${i}"><h5 class="color-black">`;
-                        if (routesList[i].name.includes('Train') || routesList[i].name.includes('train')) {
-                            allOutput += '<i class="fas fa-train icon-i"></i>';
-                        }
-                        if (routesList[i].name.includes('Bus') || routesList[i].name.includes('bus')) {
-                            allOutput += '<i class="fas fa-bus icon-i"></i>';
-                        }
-                        if (routesList[i].name.startsWith('Fly') || routesList[i].name.includes('fly ')) {
-                            allOutput += '<i class="fas fa-plane icon-i"></i>';
-                        }
-                        if (routesList[i].name.includes('Drive') || routesList[i].name.includes('drive')) {
-                            allOutput += '<i class="fas fa-car icon-i"></i>';
-                        }
-                        if (routesList[i].name.includes('Walk') || routesList[i].name.includes('walk')) {
-                            allOutput += '<i class="fas fa-walking icon-i"></i>';
-                        }
-                        if (routesList[i].name.includes('Taxi') || routesList[i].name.includes('taxi') || routesList[i].name.includes('Uber') || routesList[i].name.includes('uber')) {
-                            allOutput += '<i class="fas fa-taxi icon-i"></i>';
-                        }
-                        if (routesList[i].name.includes('Ferry') || routesList[i].name.includes('ferry')) {
-                            allOutput += '<i class="fas fa-ship icon-i"></i>';
-                        }
-                        allOutput += `
+                            if (routesList[i].name.includes('Train') || routesList[i].name.includes('train')) {
+                                allOutput += '<i class="fas fa-train icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Bus') || routesList[i].name.includes('bus')) {
+                                allOutput += '<i class="fas fa-bus icon-i"></i>';
+                            }
+                            if (routesList[i].name.startsWith('Fly') || routesList[i].name.includes('fly ')) {
+                                allOutput += '<i class="fas fa-plane icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Drive') || routesList[i].name.includes('drive')) {
+                                allOutput += '<i class="fas fa-car icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Walk') || routesList[i].name.includes('walk')) {
+                                allOutput += '<i class="fas fa-walking icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Taxi') || routesList[i].name.includes('taxi') || routesList[i].name.includes('Uber') || routesList[i].name.includes('uber')) {
+                                allOutput += '<i class="fas fa-taxi icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Ferry') || routesList[i].name.includes('ferry')) {
+                                allOutput += '<i class="fas fa-ship icon-i"></i>';
+                            }
+                            allOutput += `
                                 ${routesList[i].name}
                                 </h5>
                                 `;
 
-                        allOutput += `
+                            allOutput += `
                                 <p class="transport-time color-black"><b>`;
 
-                        if (typeof routesList[i].indicativePrices !== 'undefined') {
-                            totalPrice = routesList[i].indicativePrices[0].price;
-                        }
-                        totalTimeMin = convertTime(routesList[i].totalDuration);
+                            if (typeof routesList[i].indicativePrices !== 'undefined') {
+                                totalPrice = routesList[i].indicativePrices[0].price;
+                            }
+                            totalTimeMin = convertTime(routesList[i].totalDuration);
 
-                        allOutput += `
+                            allOutput += `
                                 ${totalTimeMin}
                                 </b>
                                 <br>
                                 <b>`;
-                        if (typeof routesList[i].indicativePrices !== 'undefined') {
-                            if (currencyCode !== "SEK") {
-                                allOutput += '$';
+                            if (typeof routesList[i].indicativePrices !== 'undefined') {
+                                if (currencyCode !== "SEK") {
+                                    allOutput += '$';
+                                }
+                                allOutput += `${totalPrice}`;
+                                if (currencyCode == "SEK") {
+                                    allOutput += ' kr';
+                                }
                             }
-                            allOutput += `${totalPrice}`;
-                            if (currencyCode == "SEK") {
-                                allOutput += ' kr';
-                            }
-                        }
-                        allOutput += `
+                            allOutput += `
                                 </b>
                                 </p>
                                 </label>
@@ -302,12 +308,12 @@
                                 <table class="table table-sm color-black">
                             `;
 
-                        segmentsList = response.data.routes[i].segments;
-                        vehiclesList = response.data.vehicles;
+                            segmentsList = response.data.routes[i].segments;
+                            vehiclesList = response.data.vehicles;
 
-                        for (var j = 0; j < segmentsList.length; j++) {
+                            for (var j = 0; j < segmentsList.length; j++) {
 
-                            allOutput += `
+                                allOutput += `
                                 <tr><td class="color-black">
                                 ${j + 1}.
                                 ${vehiclesList[segmentsList[j].vehicle].name} 
@@ -315,69 +321,69 @@
                                 to ${placesList[segmentsList[j].arrPlace].shortName}
                                 </td><td style="text-align: right" class="color-black">`;
 
-                            segmentTimeMin = convertTime(segmentsList[j].transitDuration);
+                                segmentTimeMin = convertTime(segmentsList[j].transitDuration);
 
-                            allOutput += `
+                                allOutput += `
                                 ${segmentTimeMin}
                                 </td>
                                 </tr>
                                 `;
-                        }
+                            }
 
-                        allOutput += `
+                            allOutput += `
                             </table>
                             </div>
                             </div>
                             `;
-                    }
+                        }
 
-                    allOutput += '</div>';
+                        allOutput += '</div>';
 
-                    document.getElementById('all-routes').innerHTML = allOutput;
+                        document.getElementById('all-routes').innerHTML = allOutput;
 
-                    if (routesList.length == 0) {
-                        var errorOutput = `
+                        if (routesList.length == 0) {
+                            var errorOutput = `
                                     <div class="alert alert-danger error-text" role="alert">
                                     Found no routes from ${location}
                                     </div>`;
-                        document.getElementById('error-output').innerHTML = errorOutput;
+                            document.getElementById('error-output').innerHTML = errorOutput;
+                        }
+
                     }
 
-                }
+                })
+                .catch(function (error) {
+                    console.log(error);
 
-            })
-            .catch(function(error) {
-                console.log(error);
+                    removePolyline();
+                    deleteMarkers();
 
-                removePolyline();
-                deleteMarkers();
+                    $('#loading').hide();
 
-                $('#loading').hide();
+                    document.getElementById('all-routes').innerHTML = '';
 
-                document.getElementById('all-routes').innerHTML = '';
-
-                var errorOutput = `
+                    var errorOutput = `
                             <div class="alert alert-danger error-text" role="alert">
                             <strong>Error.</strong> Can't find ${location}
                             </div>`;
-                document.getElementById('error-output').innerHTML = errorOutput;
+                    document.getElementById('error-output').innerHTML = errorOutput;
 
-            })
-    }
+                })
+        }
 
-    function writePath(route) {
-        if (typeof routesList !== 'undefined') {
-            for (var i = 0; i < routesList.length; i++) {
-                var segmentsListPath = routesList[route].segments;
-                var segmentsListRemove = routesList[i].segments;
-                for (var k = 0; k < segmentsListRemove.length; k++) {
-                    removePolyline();
-                }
-                for (var j = 0; j < segmentsListPath.length; j++) {
-                    if (typeof segmentsListPath[j].path !== 'undefined') {
-                        setPolyline(google.maps.geometry.encoding.decodePath(segmentsListPath[j].path));
-                    } else {
-                        setPolyline([{
+        function writePath(route) {
+            if (typeof routesList !== 'undefined') {
+                for (var i = 0; i < routesList.length; i++) {
+                    var segmentsListPath = routesList[route].segments;
+                    var segmentsListRemove = routesList[i].segments;
+                    for (var k = 0; k < segmentsListRemove.length; k++) {
+                        removePolyline();
+                    }
+                    for (var j = 0; j < segmentsListPath.length; j++) {
+                        if (typeof segmentsListPath[j].path !== 'undefined') {
+                            setPolyline(google.maps.geometry.encoding.decodePath(segmentsListPath[j].path));
+                        } else {
+                            setPolyline([{
                                 lat: placesList[segmentsListPath[j].depPlace].lat,
                                 lng: placesList[segmentsListPath[j].depPlace].lng
                             },
@@ -385,191 +391,191 @@
                                 lat: placesList[segmentsListPath[j].arrPlace].lat,
                                 lng: placesList[segmentsListPath[j].arrPlace].lng
                             }
-                        ]);
+                            ]);
+                        }
                     }
                 }
             }
         }
-    }
 
-    var polyline = [];
+        var polyline = [];
 
-    function setPolyline(_path) {
-        polyline.push(new google.maps.Polyline({
-            //map: map,
-            path: _path,
-            strokeColor: '#000000',
-            strokeOpacity: 1,
-            strokeWeight: 3
-        }));
-        polyline[polyline.length - 1].setMap(map);
-    }
+        function setPolyline(_path) {
+            polyline.push(new google.maps.Polyline({
+                //map: map,
+                path: _path,
+                strokeColor: '#000000',
+                strokeOpacity: 1,
+                strokeWeight: 3
+            }));
+            polyline[polyline.length - 1].setMap(map);
+        }
 
-    function removePolyline() {
-        if (typeof polyline !== 'undefined') {
-            for (var index in polyline) {
-                polyline[index].setMap(null);
+        function removePolyline() {
+            if (typeof polyline !== 'undefined') {
+                for (var index in polyline) {
+                    polyline[index].setMap(null);
 
+                }
+                polyline = [];
             }
-            polyline = [];
-        }
-    }
-
-    var markers = [];
-    var stockholm = {
-        lat: 59.334591,
-        lng: 18.063240
-    };
-    var falun = {
-        lat: 60.60357,
-        lng: 15.62597
-    };
-    var are = {
-        lat: 63.40109,
-        lng: 13.08222
-    };
-
-    var mapDiv = document.getElementById('map');
-    var mapCenter;
-    var zoom = 6;
-    mapCenter = {
-        lat: 61.72744,
-        lng: 15.62597
-    };
-    var mapOptions = {
-        zoom: zoom,
-        maxZoom: 13,
-        minZoom: 2,
-        center: mapCenter,
-        backgroundColor: '#E1E1E1',
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(mapDiv, mapOptions);
-
-    function setMarker(pos, title) {
-        var marker = new google.maps.Marker({
-            position: pos,
-            map: map,
-            title: title
-        });
-        markers.push(marker);
-    }
-
-    function setMapOnAll(map) {
-        for (var i = 0; i < markers.length; i++) {
-            markers[i].setMap(map);
-        }
-    }
-
-    function clearMarkers() {
-        setMapOnAll(null);
-    }
-
-    function showMarkers() {
-        setMapOnAll(map);
-    }
-
-    function deleteMarkers() {
-        clearMarkers();
-        markers = [];
-    }
-    setMarker(stockholm, 'Stockholm');
-    setMarker(falun, 'Falun');
-    setMarker(are, 'Åre');
-
-    /* Using Haversine Formula to calculate the midpoint between two positions */
-    if (typeof(Number.prototype.toRad) === "undefined") {
-        Number.prototype.toRad = function() {
-            return this * Math.PI / 180;
-        }
-    }
-
-    if (typeof(Number.prototype.toDeg) === "undefined") {
-        Number.prototype.toDeg = function() {
-            return this * (180 / Math.PI);
-        }
-    }
-
-    function calculateMidpoint(lat1, lng1, lat2, lng2) {
-        var dLng = (lng2 - lng1).toRad();
-
-        lat1 = lat1.toRad();
-        lat2 = lat2.toRad();
-        lng1 = lng1.toRad();
-
-        var bX = Math.cos(lat2) * Math.cos(dLng);
-        var bY = Math.cos(lat2) * Math.sin(dLng);
-        var lat3 = Math.atan2(Math.sin(lat1) + Math.sin(lat2), Math.sqrt((Math.cos(lat1) + bX) * (Math.cos(lat1) + bX) + bY * bY));
-        var lng3 = lng1 + Math.atan2(bY, Math.cos(lat1) + bX);
-        lat3 = lat3.toDeg();
-        lng3 = lng3.toDeg();
-
-        var center = new google.maps.LatLng(lat3, lng3);
-
-        map.panTo(center);
-    }
-
-    /* Using Haversine Formula to calculate the distance between two postions */
-    function calculateDistance(lat1, lng1, lat2, lng2) {
-        var R = 6371; //Jordens radie i km
-
-        var dLat = (lat2 - lat1).toRad();
-        var dLng = (lng2 - lng1).toRad();
-
-        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
-            Math.sin(dLng / 2) * Math.sin(dLng / 2);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        var distance = R * c;
-
-        console.log(distance);
-
-        return distance;
-    }
-
-    function setZoom(distance) {
-        var _zoom = 4;
-
-        if (distance < 50) {
-            _zoom = 10;
-        } else if (distance < 100) {
-            _zoom = 9;
-        } else if (distance < 255) {
-            _zoom = 8;
-        } else if (distance < 500) {
-            _zoom = 7;
-        } else if (distance < 700) {
-            _zoom = 6;
-        } else if (distance < 1000) {
-            _zoom = 5;
-        } else if (distance < 2000) {
-            _zoom = 5;
-        } else if (distance > 5600) {
-            _zoom = 3;
-        }
-        if (distance > 9500) {
-            _zoom = 2;
         }
 
-        console.log(_zoom);
-        map.setZoom(_zoom);
-    }
+        var markers = [];
+        var stockholm = {
+            lat: 59.334591,
+            lng: 18.063240
+        };
+        var falun = {
+            lat: 60.60357,
+            lng: 15.62597
+        };
+        var are = {
+            lat: 63.40109,
+            lng: 13.08222
+        };
 
-    /* convert minutes into hours and minutes */
-    function convertTime(n) {
-        var num = n;
-        var hours = (num / 60);
-        var rhours = Math.floor(hours);
-        var minutes = (hours - rhours) * 60;
-        var rminutes = Math.round(minutes);
-        if (rhours > 0 && rminutes > 0) {
-            return rhours + " h " + rminutes + " min";
-        } else if (rhours > 0 && rminutes == 0) {
-            return rhours + " h";
-        } else
-            return rminutes + " min";
-    }
-</script>
+        var mapDiv = document.getElementById('map');
+        var mapCenter;
+        var zoom = 6;
+        mapCenter = {
+            lat: 61.72744,
+            lng: 15.62597
+        };
+        var mapOptions = {
+            zoom: zoom,
+            maxZoom: 13,
+            minZoom: 2,
+            center: mapCenter,
+            backgroundColor: '#E1E1E1',
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapDiv, mapOptions);
+
+        function setMarker(pos, title) {
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: title
+            });
+            markers.push(marker);
+        }
+
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+
+        function clearMarkers() {
+            setMapOnAll(null);
+        }
+
+        function showMarkers() {
+            setMapOnAll(map);
+        }
+
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
+        setMarker(stockholm, 'Stockholm');
+        setMarker(falun, 'Falun');
+        setMarker(are, 'Åre');
+
+        /* Using Haversine Formula to calculate the midpoint between two positions */
+        if (typeof (Number.prototype.toRad) === "undefined") {
+            Number.prototype.toRad = function () {
+                return this * Math.PI / 180;
+            }
+        }
+
+        if (typeof (Number.prototype.toDeg) === "undefined") {
+            Number.prototype.toDeg = function () {
+                return this * (180 / Math.PI);
+            }
+        }
+
+        function calculateMidpoint(lat1, lng1, lat2, lng2) {
+            var dLng = (lng2 - lng1).toRad();
+
+            lat1 = lat1.toRad();
+            lat2 = lat2.toRad();
+            lng1 = lng1.toRad();
+
+            var bX = Math.cos(lat2) * Math.cos(dLng);
+            var bY = Math.cos(lat2) * Math.sin(dLng);
+            var lat3 = Math.atan2(Math.sin(lat1) + Math.sin(lat2), Math.sqrt((Math.cos(lat1) + bX) * (Math.cos(lat1) + bX) + bY * bY));
+            var lng3 = lng1 + Math.atan2(bY, Math.cos(lat1) + bX);
+            lat3 = lat3.toDeg();
+            lng3 = lng3.toDeg();
+
+            var center = new google.maps.LatLng(lat3, lng3);
+
+            map.panTo(center);
+        }
+
+        /* Using Haversine Formula to calculate the distance between two postions */
+        function calculateDistance(lat1, lng1, lat2, lng2) {
+            var R = 6371; //Jordens radie i km
+
+            var dLat = (lat2 - lat1).toRad();
+            var dLng = (lng2 - lng1).toRad();
+
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+                Math.sin(dLng / 2) * Math.sin(dLng / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var distance = R * c;
+
+            console.log(distance);
+
+            return distance;
+        }
+
+        function setZoom(distance) {
+            var _zoom = 4;
+
+            if (distance < 50) {
+                _zoom = 10;
+            } else if (distance < 100) {
+                _zoom = 9;
+            } else if (distance < 255) {
+                _zoom = 8;
+            } else if (distance < 500) {
+                _zoom = 7;
+            } else if (distance < 700) {
+                _zoom = 6;
+            } else if (distance < 1000) {
+                _zoom = 5;
+            } else if (distance < 2000) {
+                _zoom = 5;
+            } else if (distance > 5600) {
+                _zoom = 3;
+            }
+            if (distance > 9500) {
+                _zoom = 2;
+            }
+
+            console.log(_zoom);
+            map.setZoom(_zoom);
+        }
+
+        /* convert minutes into hours and minutes */
+        function convertTime(n) {
+            var num = n;
+            var hours = (num / 60);
+            var rhours = Math.floor(hours);
+            var minutes = (hours - rhours) * 60;
+            var rminutes = Math.round(minutes);
+            if (rhours > 0 && rminutes > 0) {
+                return rhours + " h " + rminutes + " min";
+            } else if (rhours > 0 && rminutes == 0) {
+                return rhours + " h";
+            } else
+                return rminutes + " min";
+        }
+    </script>
 </body>
 
 </html>
