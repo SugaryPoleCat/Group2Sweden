@@ -112,9 +112,12 @@ SECTIONS
  */
 
  /* CITIES*/
-.cities{
-    
-    
+#cities h3:hover{
+    cursor: pointer;
+    text-decoration: underline;   
+}
+#cities a h4{
+    margin-bottom: 0;
 }
 #cities{
     background-color: #f9f9ff;
@@ -122,21 +125,13 @@ SECTIONS
     background: linear-gradient(to right, #faf5df, rgb(255, 241, 178));*/
 }
 /* DIRECTIONS */
-.directions{
-    
-}
 #directions{
     background-color: #f9f9ff;
     /*background: -webkit-linear-gradient(left, #b3d3f8, #25b7c4);
     background: linear-gradient(to right, #fffef7, rgb(255, 246, 207));*/
 }
 /* OLYMPIC SCHEMA */
-.schema{
 
-}
-#schema{
-
-}
 
 /*
 ---------
@@ -186,9 +181,15 @@ SCROLLUP
     bottom: 100px;
 }
 
-
-
-
+/*
+----------
+MOBILEVIEW
+----------
+*/
+@media (max-width: 767px){.navbar-toggle {
+    background-color: rgb(247, 202, 105);
+}
+}
 
 
 
