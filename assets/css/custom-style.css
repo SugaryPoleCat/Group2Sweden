@@ -192,7 +192,7 @@ MOBILEVIEW
 ----------
 */
 @media (max-width: 767px){.navbar-toggle {
-    background-color: #FFCD00;
+    background-color: rgb(247, 202, 105);
 }
 }
 
