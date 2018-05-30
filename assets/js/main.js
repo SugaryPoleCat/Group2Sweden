@@ -213,7 +213,7 @@ jQuery(document).ready(function ($) {
 
 
     //End
-});
+
 $(function () {
 		
 	var filterList = {
@@ -239,4 +239,4 @@ $(function () {
 	// Run the show!
 	filterList.init();
 	
-});		
+});});		
