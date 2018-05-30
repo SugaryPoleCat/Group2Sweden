@@ -131,6 +131,9 @@
             <div id="all-routes"></div>
             <div id="map"></div>
         </div>
+        <div id="loading" style="display: none;">
+            <img id="loading-image" src="assets/images/loading.gif" alt="Loading..." />
+        </div>
 
     </section>
 
@@ -183,6 +186,8 @@
         function geocode(e) {
             e.preventDefault();
 
+            $('#loading').show();
+
             var currencyCode;
             var userLang = navigator.language || navigator.userLanguage;
 
@@ -205,6 +210,8 @@
                 }
             })
                 .then(function (response) {
+
+                    $('#loading').hide();
 
                     document.getElementById('error-output').innerHTML = '';
 
@@ -344,6 +351,8 @@
                 })
                 .catch(function (error) {
                     console.log(error);
+
+                    $('#loading').hide();
 
                     var errorOutput = `
                         <div class="alert alert-danger error-text" role="alert">
