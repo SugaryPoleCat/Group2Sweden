@@ -234,9 +234,9 @@
                     setMarker(pos1);
                     setMarker(pos2);
 
-                    showRoutes('all-routes');
+                    showRoutes();
 
-                    function showRoutes(divRoutes) {
+                    function showRoutes() {
 
                         routesList = response.data.routes;
 
@@ -335,7 +335,7 @@
 
                         allOutput += '</div>';
 
-                        document.getElementById(divRoutes).innerHTML = allOutput;
+                        document.getElementById('all-routes').innerHTML = allOutput;
 
                         if (routesList.length == 0) {
                             var errorOutput = `
@@ -350,8 +350,13 @@
                 })
                 .catch(function (error) {
                     console.log(error);
+                    
+                    removePolyline();
+                    deleteMarkers();
 
                     $('#loading').hide();
+
+                    document.getElementById('all-routes').innerHTML = '';
 
                     var errorOutput = `
                         <div class="alert alert-danger error-text" role="alert">
