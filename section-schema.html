@@ -2,8 +2,8 @@
     <div class="custom-container">
     
         <!-- HEADING --> 
-        <div class="heading text-center">
-            <h1>Olympic Schedule</h1>
+        <div class="schema-heading heading text-center">
+            <h1 class="schema-heading">Olympic Schedule</h1>
             <div class="separator"></div>
         </div>
         
@@ -12,31 +12,33 @@
                 <!-- CONTENT -->
                 <div np-app="">
                     <table class="schema-table">
-                        <thead>
+                        <thead class="schema-table-header">
                         <tr>
-                            <th>
+                            <th class="schema-table-th">
                                 Icon
                             </th>
-                            <th>
+                            <th class="schema-table-th">
                                 Name
                             </th>
-                            <th>
+                            <th class="schema-table-th">
                                 ?
                             </th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>
+
+                        <tbody class="schema-table-content">
+                        <div><button data-toggle="collapse" data-target="#badminton">CATEGORY</button></div>
+                        <div id="badminton" class="collapse"><tr>
+                            <td class="schema-table-td">
                                 {{s.icon}}
                             </td>
-                            <td>
+                            <td class="schema-table-td">
                                 {{s.name}}
                             </td>
-                            <td>
+                            <td class="schema-table-td">
                                 {{s.?}}
                             </td>
-                        </tr>
+                        </tr></div>
                         </tbody>
                     </table>
                 </div>
