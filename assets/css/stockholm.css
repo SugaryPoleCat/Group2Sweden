@@ -44,7 +44,7 @@ img {
     -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
-    user-drag: none;
+    /* user-drag: none; */
 }
 a,
 a:hover,
@@ -193,9 +193,9 @@ p:last-child {
     color: #ffffff;
 }
 
-.lightbg {
-    /* background-color: #f9f9f9; */ /* Background color of Attractions section */
-}
+/* .lightbg {
+    /* background-color: #f9f9f9; Background color of Attractions section 
+} */
 .transition {
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
