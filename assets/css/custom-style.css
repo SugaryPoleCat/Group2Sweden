@@ -191,11 +191,10 @@ SCROLLUP
 MOBILEVIEW
 ----------
 */
-@media (max-width: 767px).navbar-toggle {
-    background-color: #f2c0e3;
+@media (max-width: 767px){.navbar-toggle {
+    background-color: #FFCD00;
 }
-
-
+}
 
 
 
