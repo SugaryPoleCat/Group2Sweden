@@ -228,7 +228,7 @@ $(function () {
   			  filter: '.filter'	
   		  },
   		  load: {
-    		  filter: '.app' // show app tab on first load
+    		  filter: '.clearfix' // show app tab on first load
     		}     
 			});								
 		
@@ -242,4 +242,7 @@ $(function () {
     
 });
 //End
+
+
+
 });		
