@@ -163,17 +163,28 @@ MODAL
 
 
 
-/* FOOTER */
+/* 
+----------
+FOOTER
+----------
+ */
+ footer{
+     background: #3f3f3f;
+     color: #fff;
+ }
 .copyright{
     margin-top: 50px;
+    text-align: center;
 }
 
-
-
-
-
-
-
+/*
+----------
+SCROLLUP
+----------
+*/
+.scrollup{
+    bottom: 100px;
+}
 
 
 
