@@ -50,39 +50,50 @@
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class='preloader'>
-    <div class='loaded'>&nbsp;</div>
-</div>
-<nav class="navbar navbar-default navbar-fixed-top navbar-inner" id="main_navbar">
-        
-    <div class="container-fluid custom-container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <a class="navbar-brand" href="index.html"><img src="assets/images/Logga.png" alt="logo" /></a>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home">Home</a></li>
-                <!--  <li><a href="#service">Services</a></li> -->
-                <li><a href="#directions">Directions</a></li>
-                <li><a href="#schema">Schedule</a></li>
-                <li><a href="#cities">The cities</a></li>
-                <!-- <li><a href="#testimonial">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li> -->
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+    <div class='preloader'>
+        <div class='loaded'>&nbsp;</div>
     </div>
-    <!-- /.container-fluid -->
-</nav>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inner" id="main_navbar">
+
+        <div class="container-fluid custom-container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/Logga.png" alt="logo" />
+            </a>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <!--  <li><a href="#service">Services</a></li> -->
+                    <li>
+                        <a href="#directions">Directions</a>
+                    </li>
+                    <li>
+                        <a href="#schema">Schedule</a>
+                    </li>
+                    <li>
+                        <a href="#cities">The cities</a>
+                    </li>
+                    <!-- <li><a href="#testimonial">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
     <!--Home page style-->
     <div ng-include="'home.html'"></div>
 
@@ -126,20 +137,18 @@
     <div ng-include="'section-schema.html'"></div>
     <div ng-include="'section-city.html'"></div>
     <!--Footer-->
-    
+
     <footer id="footer" class="footer">
-        <div class="container">
+        <div class="custom-container">
             <div class="scroll-top">
                 <div class="scrollup">
                     <i class="fa fa-angle-up"></i>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12">
+                <div>
                     <div class="copyright">
                         <p>&copy; 2018 GRUPP 2</p>
-                        <p>Created by some 5 dudes.</p>
-                        <p>Please don't contact us. We don't use email. We don't use browser. We don't use internet. Please respect our privacy and internet free lives.</p>
                     </div>
                 </div>
             </div>
@@ -174,8 +183,6 @@
         function geocode(e) {
             e.preventDefault();
 
-            //map = new google.maps.Map(mapDiv, mapOptions);
-
             var currencyCode;
             var userLang = navigator.language || navigator.userLanguage;
 
@@ -203,6 +210,7 @@
 
                     console.log(response);
                     removePolyline();
+                    deleteMarkers();
 
                     placesList = response.data.places;
 
@@ -214,10 +222,15 @@
 
                     calculateMidpoint(lat1, lng1, lat2, lng2);
                     setZoom(calculateDistance(lat1, lng1, lat2, lng2));
+                    /* Sets a marker at location and destination */
+                    var pos1 = { lat: lat1, lng: lng1 };
+                    var pos2 = { lat: lat2, lng: lng2 };
+                    setMarker(pos1);
+                    setMarker(pos2);
 
-                    showRoutes('all-routes', '', '');
+                    showRoutes('all-routes');
 
-                    function showRoutes(divRoutes, xType, type) {
+                    function showRoutes(divRoutes) {
 
                         routesList = response.data.routes;
 
@@ -225,61 +238,59 @@
 
                         for (var i = 0; i < routesList.length; i++) {
 
-                            if (routesList[i].name.includes(xType) || routesList[i].name.includes(type)) {
-
-                                allOutput += `
+                            allOutput += `
                             <div id="div${i}">
                             <input id="${i}" type="radio" name="tabs" onclick="writePath(${i});">
                             <label class="label-item" for="${i}"><h5 class="color-black">`;
-                                if (routesList[i].name.includes('Train') || routesList[i].name.includes('train')) {
-                                    allOutput += '<i class="fas fa-train icon-i"></i>';
-                                }
-                                if (routesList[i].name.includes('Bus') || routesList[i].name.includes('bus')) {
-                                    allOutput += '<i class="fas fa-bus icon-i"></i>';
-                                }
-                                if (routesList[i].name.startsWith('Fly') || routesList[i].name.includes('fly ')) {
-                                    allOutput += '<i class="fas fa-plane icon-i"></i>';
-                                }
-                                if (routesList[i].name.includes('Drive') || routesList[i].name.includes('drive')) {
-                                    allOutput += '<i class="fas fa-car icon-i"></i>';
-                                }
-                                if (routesList[i].name.includes('Walk') || routesList[i].name.includes('walk')) {
-                                    allOutput += '<i class="fas fa-walking icon-i"></i>';
-                                }
-                                if (routesList[i].name.includes('Taxi') || routesList[i].name.includes('taxi') || routesList[i].name.includes('Uber') || routesList[i].name.includes('uber')) {
-                                    allOutput += '<i class="fas fa-taxi icon-i"></i>';
-                                }
-                                if (routesList[i].name.includes('Ferry') || routesList[i].name.includes('ferry')) {
-                                    allOutput += '<i class="fas fa-ship icon-i"></i>';
-                                }
-                                allOutput += `
+                            if (routesList[i].name.includes('Train') || routesList[i].name.includes('train')) {
+                                allOutput += '<i class="fas fa-train icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Bus') || routesList[i].name.includes('bus')) {
+                                allOutput += '<i class="fas fa-bus icon-i"></i>';
+                            }
+                            if (routesList[i].name.startsWith('Fly') || routesList[i].name.includes('fly ')) {
+                                allOutput += '<i class="fas fa-plane icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Drive') || routesList[i].name.includes('drive')) {
+                                allOutput += '<i class="fas fa-car icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Walk') || routesList[i].name.includes('walk')) {
+                                allOutput += '<i class="fas fa-walking icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Taxi') || routesList[i].name.includes('taxi') || routesList[i].name.includes('Uber') || routesList[i].name.includes('uber')) {
+                                allOutput += '<i class="fas fa-taxi icon-i"></i>';
+                            }
+                            if (routesList[i].name.includes('Ferry') || routesList[i].name.includes('ferry')) {
+                                allOutput += '<i class="fas fa-ship icon-i"></i>';
+                            }
+                            allOutput += `
                             ${routesList[i].name}
                             </h5>
                             `;
 
-                                allOutput += `
+                            allOutput += `
                             <p class="transport-time color-black"><b>`;
 
-                                if (typeof routesList[i].indicativePrices !== 'undefined') {
-                                    totalPrice = routesList[i].indicativePrices[0].price;
-                                }
-                                totalTimeMin = convertTime(routesList[i].totalDuration);
+                            if (typeof routesList[i].indicativePrices !== 'undefined') {
+                                totalPrice = routesList[i].indicativePrices[0].price;
+                            }
+                            totalTimeMin = convertTime(routesList[i].totalDuration);
 
-                                allOutput += `
+                            allOutput += `
                             ${totalTimeMin}
                             </b>
                             <br>
                             <b>`;
-                                if (typeof routesList[i].indicativePrices !== 'undefined') {
-                                    if (currencyCode !== "SEK") {
-                                        allOutput += '$';
-                                    }
-                                    allOutput += `${totalPrice}`;
-                                    if (currencyCode == "SEK") {
-                                        allOutput += ' kr';
-                                    }
+                            if (typeof routesList[i].indicativePrices !== 'undefined') {
+                                if (currencyCode !== "SEK") {
+                                    allOutput += '$';
                                 }
-                                allOutput += `
+                                allOutput += `${totalPrice}`;
+                                if (currencyCode == "SEK") {
+                                    allOutput += ' kr';
+                                }
+                            }
+                            allOutput += `
                             </b>
                             </p>
                             </label>
@@ -287,41 +298,40 @@
                             <table class="table table-sm color-black">
                         `;
 
-                                segmentsList = response.data.routes[i].segments;
-                                vehiclesList = response.data.vehicles;
+                            segmentsList = response.data.routes[i].segments;
+                            vehiclesList = response.data.vehicles;
 
-                                for (var j = 0; j < segmentsList.length; j++) {
+                            for (var j = 0; j < segmentsList.length; j++) {
 
-                                    allOutput += `
-                            <tr><td>
+                                allOutput += `
+                            <tr><td class="color-black">
                             ${j + 1}.
                             ${vehiclesList[segmentsList[j].vehicle].name} 
                             from ${placesList[segmentsList[j].depPlace].shortName} 
                             to ${placesList[segmentsList[j].arrPlace].shortName}
-                            </td><td style="text-align: right">`;
+                            </td><td style="text-align: right" class="color-black">`;
 
-                                    segmentTimeMin = convertTime(segmentsList[j].transitDuration);
+                                segmentTimeMin = convertTime(segmentsList[j].transitDuration);
 
-                                    allOutput += `
+                                allOutput += `
                             ${segmentTimeMin}
                             </td>
                             </tr>
                             `;
-                                }
+                            }
 
-                                allOutput += `
+                            allOutput += `
                         </table>
                         </div>
                         </div>
                         `;
-                            }
                         }
 
                         allOutput += '</div>';
 
                         document.getElementById(divRoutes).innerHTML = allOutput;
 
-                        if(routesList.length == 0){
+                        if (routesList.length == 0) {
                             var errorOutput = `
                                 <div class="alert alert-danger error-text" role="alert">
                                 Found no routes from ${location}
@@ -389,11 +399,15 @@
             }
         }
 
+        var markers = [];
         var stockholm = { lat: 59.334591, lng: 18.063240 };
+        var falun = { lat: 60.60357, lng: 15.62597 };
+        var are = { lat: 63.40109, lng: 13.08222 };
+
         var mapDiv = document.getElementById('map');
         var mapCenter;
-        var zoom = 4;
-        mapCenter = stockholm;
+        var zoom = 6;
+        mapCenter = { lat: 61.72744, lng: 15.62597 };
         var mapOptions = {
             zoom: zoom,
             maxZoom: 13,
@@ -402,7 +416,33 @@
             backgroundColor: '#E1E1E1',
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        map = new google.maps.Map(mapDiv, mapOptions);
+        var map = new google.maps.Map(mapDiv, mapOptions);
+
+        function setMarker(pos) {
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map
+            });
+            markers.push(marker);
+        }
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+        function clearMarkers() {
+            setMapOnAll(null);
+        }
+        function showMarkers() {
+            setMapOnAll(map);
+        }
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
+        setMarker(stockholm);
+        setMarker(falun);
+        setMarker(are);
 
         /* Using Haversine Formula to calculate the midpoint between two positions */
         if (typeof (Number.prototype.toRad) === "undefined") {
