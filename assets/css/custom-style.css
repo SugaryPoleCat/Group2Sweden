@@ -302,6 +302,9 @@ h2{
     color: #444;
     font-weight: 900;
 }
+h5{
+    color: #000;
+}
 .btn{
     border-radius: 0px;
 }
