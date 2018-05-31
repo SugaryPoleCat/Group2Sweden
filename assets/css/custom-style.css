@@ -242,30 +242,41 @@ SCHEMA
     table-layout: fixed;
 }
 .schema-table-header{
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(255,255,255,0.5);
 }
 .schema-table-content{
     height: 300px;
     overflow-x: auto;
     margin-top: 0px;
-    border: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.5);
 }
 .schema-table-th{
-    padding: 20px 15px;
-    text-align: left;
-    font-weight: 500;
-    font-size: 12px;
-    color: #fff;
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
     text-transform: uppercase;
 }
 .schema-table-td{
-    padding: 15px;
-    text-align: left;
+    padding: 5px;
+    text-align: center;
     vertical-align: middle;
-    font-weight: 300;
-    font-size: 12px;
-    color: #fff;
-    border-bottom: solid 1px rgba(0,0,0,0.1);
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    border-bottom: solid 1px rgba(255,255,255,0.3);
+    border-left: solid 1px rgba(255,255,255,0.3);
+    border-right: solid 1px rgba(255,255,255,0.3);
+}
+.schema-table-td-important{
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: #000;
+    text-transform: uppercase;
+    background-color: rgba(255,255,255,0.1);
 }
 .schema{
     background: -webkit-linear-gradient(left, #b3d3f8, #25b7c4);
@@ -277,23 +288,6 @@ SCHEMA
 }
 .icon-sport{
     
-}
-
-/*
----------
-FLEX
----------
-*/
-.flex-container{
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: space-between;
-}
-.flex-container > div{
-    margin: 3px;
-    padding: 5px;
-    background-color: #f6f6f6;
 }
 
 /*
