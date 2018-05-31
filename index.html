@@ -137,21 +137,22 @@
 
     <!--Footer-->
     <footer id="footer" class="footer">
-        <div class="custom-container">
-            <div class="scroll-top">
-                <div class="scrollup">
-                    <i class="fa fa-angle-up"></i>
-                </div>
+    <div class="custom-container">
+        <div class="scroll-top">
+            <div class="scrollup">
+                <i class="fa fa-angle-up"></i>
             </div>
-            <div class="row">
-                <div>
-                    <div class="copyright">
-                        <p>&copy; 2018 GRUPP 2</p>
-                    </div>
+        </div>
+        <div class="row">
+            <div>
+                <div class="copyright">
+                    <p>&copy; 2018 GRUPP 2</p>
+                    <p><strong>2018 - </strong><strong><span id="currentday"></span></strong></p>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <!-- IMPORTANT DONT MOVE OR LOAD WONT WORK -->
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
@@ -160,6 +161,13 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/jquery.magnific-popup.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script>
+        var today = new Date();
+        var yyyy = today.getFullYear();
+        today = yyyy;
+        document.getElementById("currentday").innerHTML = today;
+    </script>
 
     <!-- SCRIPT FÖR RESESÖKNING -->
     <script>
