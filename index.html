@@ -93,7 +93,8 @@
     <div ng-include="'home.html'"></div>
 
     <section id="directions" class="directions sections">
-        <div class="custom-container">
+        <div>
+            <div class="travel-to">
             <div class="heading text-center">
                 <h1>Travel to Sweden</h1>
                 <div class="separator"></div>
@@ -114,12 +115,13 @@
                         </select>
                     </div>
 
-                    <button id="submit-button" type="submit" class="submit">
+                    <button id="submit-button" type="submit" class="btn btn-success btn-block">
                         <strong>Go</strong>
                     </button>
                 </form>
             </div>
             <div id="error-output"></div>
+            </div>
         </div>
         <div id="output">
             <div id="all-routes"></div>

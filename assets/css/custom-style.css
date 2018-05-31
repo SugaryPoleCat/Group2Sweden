@@ -280,8 +280,8 @@ SCHEMA
     border-bottom: solid 1px rgba(255,255,255,0.3);
 }
 .schema{
-    background: -webkit-linear-gradient(left, #b3d3f8, #25b7c4);
-    background: linear-gradient(to right, #b7cde6, rgb(157, 202, 224));
+    background: -webkit-linear-gradient(left, #d7e6f7, rgb(157, 211, 238));
+    background: linear-gradient(to right, #d7e6f7, rgb(157, 211, 238));
     /*font-family: 'Roboto', sans-serif;*/
 }
 .schema-heading{
@@ -296,6 +296,9 @@ SCHEMA
 CORE
 ------
 */
+h1{
+    font-family: 'Tajawal', sans-serif;
+}
 h2{
     font-size: 24px;
     margin-top: 10px;
@@ -307,4 +310,21 @@ h5{
 }
 .btn{
     border-radius: 0px;
+}
+
+
+/*
+-------------
+HOME
+------------
+*/
+.home-content h1{
+    font-family: 'Tajawal', sans-serif;
+}
+.home-content{
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+}
+.travel-to{
+    background: linear-gradient(to right, #d7e6f7, rgb(157, 211, 238));
 }
