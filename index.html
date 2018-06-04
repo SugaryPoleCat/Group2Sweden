@@ -216,7 +216,7 @@
 
                     document.getElementById('error-output').innerHTML = '';
 
-                    console.log(response);
+                    console.log(response.data);
                     removePolyline();
                     deleteMarkers();
 
@@ -252,36 +252,23 @@
                     function showRoutes() {
 
                         routesList = response.data.routes;
+                        vehiclesList = response.data.vehicles;
 
                         var allOutput = `<div class="tabacc">`;
 
                         for (var i = 0; i < routesList.length; i++) {
 
+                            segmentsList = response.data.routes[i].segments;
+                            
                             allOutput += `
                                 <div id="div${i}">
                                 <input id="${i}" type="radio" name="tabs" onclick="writePath(${i});">
                                 <label class="label-item" for="${i}"><h5 class="color-black">`;
-                            if (routesList[i].name.includes('Train') || routesList[i].name.includes('train')) {
-                                allOutput += '<i class="fas fa-train icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Bus') || routesList[i].name.includes('bus')) {
-                                allOutput += '<i class="fas fa-bus icon-i"></i>';
-                            }
-                            if (routesList[i].name.startsWith('Fly') || routesList[i].name.includes('fly ')) {
-                                allOutput += '<i class="fas fa-plane icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Drive') || routesList[i].name.includes('drive')) {
-                                allOutput += '<i class="fas fa-car icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Walk') || routesList[i].name.includes('walk')) {
-                                allOutput += '<i class="fas fa-walking icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Taxi') || routesList[i].name.includes('taxi') || routesList[i].name.includes('Uber') || routesList[i].name.includes('uber')) {
-                                allOutput += '<i class="fas fa-taxi icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Ferry') || routesList[i].name.includes('ferry')) {
-                                allOutput += '<i class="fas fa-ship icon-i"></i>';
-                            }
+
+                                for (var p = 0; p < segmentsList.length; p++) {
+                                    allOutput += setIcon(vehiclesList[segmentsList[p].vehicle].kind);
+                                }
+
                             allOutput += `
                                 ${routesList[i].name}
                                 </h5>
@@ -316,9 +303,6 @@
                                 <div class="tab-content">
                                 <table class="table table-sm color-black">
                             `;
-
-                            segmentsList = response.data.routes[i].segments;
-                            vehiclesList = response.data.vehicles;
 
                             for (var j = 0; j < segmentsList.length; j++) {
 
@@ -568,6 +552,28 @@
 
             console.log(_zoom);
             map.setZoom(_zoom);
+        }
+
+        function setIcon(string){
+
+            var type = '';
+            
+            if(string.includes('train'))
+                type = '<i class="fas fa-train icon-i"></i>';
+            if(string.includes('bus'))
+                type = '<i class="fas fa-bus icon-i"></i>';
+            if(string.includes('plane'))
+                type = '<i class="fas fa-plane icon-i"></i>';
+            if(string.includes('car'))
+                type = '<i class="fas fa-car icon-i"></i>';
+            if(string.includes('foot'))
+                type = '<i class="fas fa-walking icon-i"></i>';
+            if(string.includes('taxi') || string.includes('towncar'))
+                type = '<i class="fas fa-taxi icon-i"></i>';
+            if(string.includes('ferry'))
+                type = '<i class="fas fa-ship icon-i"></i>';
+
+            return type;
         }
 
         /* convert minutes into hours and minutes */
