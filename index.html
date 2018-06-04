@@ -736,6 +736,9 @@
                 _zoom = 2;
             }
 
+            if(screen.width < 600){
+                _zoom = _zoom - 1;
+            }
             //console.log(_zoom);
             map.setZoom(_zoom);
         }
