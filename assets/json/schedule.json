@@ -38,6 +38,6 @@
         }
     ],
     "city":[
-        {"city":"Falun"}{"city":"Stockholm"},{"city":"Åre"}
+        {"city":"Falun"},{"city":"Stockholm"},{"city":"Åre"}
     ]
 }
