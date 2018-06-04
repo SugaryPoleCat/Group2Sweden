@@ -1,0 +1,22 @@
+[{
+    "date": "7/02",
+    "sport":[{
+        "name":"Biathlon",
+        "location":"Falun"
+    },
+    {
+        "name":"Bobsleigh",
+        "Locatin":"Are"
+    }]
+},
+{
+    "date": "8/02",
+    "sport":[{
+        "name":"Biathlon",
+        "location":"Falun"
+    },
+    {
+        "name":"Bobsleigh",
+        "Locatin":"Are"
+    }]
+}]
