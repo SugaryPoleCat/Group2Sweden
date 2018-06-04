@@ -7,12 +7,9 @@
     <div class="separator"></div>
     <h2>The schedule for Olympic events 2024</h2>
 </div>
-
+    
 <!-- CONTENT -->
 <div class="custom-container">
-<button data-toggle="collapse" href="#schemalol" type="button" class="btn btn-info btn-custom btn-block">Close/open schedule</button>
-
-<div id="schemalol" class="">
 <form>
 <div class="form-group">
     <label for="idk1">Select filter</label>
@@ -23,12 +20,12 @@
 </div>
 <button id="submit-button" type="submit" class="btn btn-success btn-custom btn-block"><strong>Go</strong></button>
 </form>
-
-<div ng-app"osSchema" ng-controller="schemaCtrl">
+    
+<div ng-app="osSchema" ng-controller="schemaCtrl">
     <dix class="row">
-        <div ng-repeat="x in sport">
+        <div ng-repeat="x in myData">
             <div class="col-sm-1">
-                {{x.sport1}}
+                {{x.date}}
             </div>
         </div>
     </dix>
@@ -83,7 +80,14 @@
         </div>
     </div>
 </div>
-</div>
-</div>
 </section>
+<script>
+    var schedule = angular.module('osSchema', []);
+    schedule.controller('schemaCtrl',function($scope,$http){
+        $http.get("assets/js/schedule2.json").then(function(response){
+            $scope.myData=response.data;
+        });
+    });
+</script>
+
 <!-- SCHEMA END -->

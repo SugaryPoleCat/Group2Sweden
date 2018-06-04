@@ -41,7 +41,7 @@
     <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
-<body data-spy="scroll" data-target="#main_navbar" ng-app="">
+<body data-spy="scroll" data-target="#main_navbar" ng-app="osSchema">
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -153,7 +153,7 @@
 
     <!--<div ng-include="'section-schema.html'"></div>-->
     <!-- SCHEMA -->
-<section id="schema" class="schema sections schema-dark">
+    <section id="schema" class="schema sections schema-dark">
 
         <!-- HEADING --> 
         <div class="schema-heading heading text-center">
@@ -164,9 +164,6 @@
         
         <!-- CONTENT -->
         <div class="custom-container">
-        <button data-toggle="collapse" href="#schemalol" type="button" class="btn btn-info btn-custom btn-block">Close/open schedule</button>
-        
-        <div id="schemalol" class="">
         <form>
         <div class="form-group">
             <label for="idk1">Select filter</label>
@@ -178,63 +175,63 @@
         <button id="submit-button" type="submit" class="btn btn-success btn-custom btn-block"><strong>Go</strong></button>
         </form>
         
-        <div ng-app="osSchema" ng-controller="schemaCtrl">
-            <dix class="row">
-                <div ng-repeat="x in myData">
-                    <div class="col-sm-1">
-                        {{x.date}}
+        <div ng-controller="schemaCtrl">
+        <div class="sport">
+        <dix class="row">
+            <div ng-repeat="x in myData">
+                <div class="col-sm-1">
+                    {{x.date}}
+                </div>
+            </div>
+        </dix>
+        <div class="row">
+            <div class="col-sm-6">
+                The schema
+                <div class="row">
+                    <div class="col-sm-3">
+                        Ceremonies
+                    </div>
+                    <div class="col-sm-3">
+                        Alpine Skiing
+                    </div>
+                    <div class="col-sm-3">
+                        Biathlon
+                    </div>
+                    <div class="col-sm-3">
+                        Bobsleigh
                     </div>
                 </div>
-            </dix>
-            <div class="row">
-                <div class="col-sm-6">
-                    The schema
-                    <div class="row">
-                        <div class="col-sm-3">
-                            Ceremonies
-                        </div>
-                        <div class="col-sm-3">
-                            Alpine Skiing
-                        </div>
-                        <div class="col-sm-3">
-                            Biathlon
-                        </div>
-                        <div class="col-sm-3">
-                            Bobsleigh
-                        </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        Cross-Country Skiing
                     </div>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            Cross-Country Skiing
-                        </div>
-                        <div class="col-sm-3">
-                            Curling
-                        </div>
-                        <div class="col-sm-3">
-                            Figure Skating
-                        </div>
-                        <div class="col-sm-3">
-                            Freestyle Skiing
-                        </div>
+                    <div class="col-sm-3">
+                        Curling
                     </div>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            Ice Hockey
-                        </div>
-                        <div class="col-sm-3">
-                            Luge
-                        </div>
-                        <div class="col-sm-3">
-                            Biathlon
-                        </div>
-                        <div class="col-sm-3">
-                            Bobsleigh
-                        </div>
+                    <div class="col-sm-3">
+                        Figure Skating
+                    </div>
+                    <div class="col-sm-3">
+                        Freestyle Skiing
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    The details
+                <div class="row">
+                    <div class="col-sm-3">
+                        Ice Hockey
+                    </div>
+                    <div class="col-sm-3">
+                        Luge
+                    </div>
+                    <div class="col-sm-3">
+                        Biathlon
+                    </div>
+                    <div class="col-sm-3">
+                        Bobsleigh
+                    </div>
                 </div>
+            </div>
+            <div class="col-sm-6">
+                The details
             </div>
         </div>
         </div>
@@ -248,8 +245,8 @@
                 });
             });
         </script>
-
         <!-- SCHEMA END -->
+
     <div ng-include="'section-city.html'"></div>
 
     <!--Footer-->
