@@ -1,15 +1,21 @@
 [{
+    "ID":1,
     "date": "7/02",
     "sport":[{
         "name":"Biathlon",
         "location":"Falun"
     },
     {
-        "name":"Bobsleigh",
-        "Locatin":"Are"
+        "name":"Luge",
+        "Locatin":"Åre"
+    },
+    {
+        "name":"Ski Jumping",
+        "Locatin":"Falun"
     }]
 },
 {
+    "ID":2,
     "date": "8/02",
     "sport":[{
         "name":"Biathlon",
