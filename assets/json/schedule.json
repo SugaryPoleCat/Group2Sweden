@@ -57,6 +57,50 @@
 {
         "name":"Luge - Are"
     
+}]
+},  
+{   
+    "date": "10/02",
+    "sport":[{
+        "name":"Alpine skiing - Are"
+    
+},
+{
+         "name":"Biathlon - Falun"
+    
+},
+{
+        "name":"Cross-Country skiing - Falun"
+    
+},
+{
+        "name":"Curling - Stockholm"
+    
+},
+{
+        "name":"Ice-hockey - Stockholm"
+    
+},
+{
+        "name":"Luge - Are"
+
+},
+{
+        "name":"Short track speed skating - Stockholm"
+
+},
+{
+        "name":"Ski jumping - Falun"
+
+},
+{
+    "name":"Snowboard - Are"
+
+},
+{
+    "name":"Speed skating - Stockholm"
+
 }
+
 ]   
 }]
