@@ -417,14 +417,13 @@ FLEXBOX
 --------------
 */
 .flex-container{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    display: flex;    
+    
 }
 .flex-column{
     flex: 25%;
     max-width: 25%;
-    padding: 0 4px;
+   
 }
 .flex-column img{
     margin-top: 8px;
