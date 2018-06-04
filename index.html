@@ -56,6 +56,7 @@
                 <img src="assets/images/Logga.png" alt="logo" />
             </a>
             <div class="navbar-header">
+<<<<<<< HEAD
                     <ul class="list-unstyled list-inline ct-topbar__list">
                             <li class="ct-language">Language <i class="fa fa-arrow-down"></i>
                               <ul class="list-unstyled ct-language__dropdown">
@@ -69,6 +70,21 @@
                             </li>
                           </ul>
                    
+=======
+                <ul class="list-unstyled list-inline ct-topbarlist">
+                    <li class="ct-language">Language <i class="fa fa-arrow-down"></i>
+                      <ul class="list-unstyled ct-languagedropdown">
+                        <li><a href="#googtrans(en|en)" class="lang-en lang-select" data-lang="en"><img src="https://www.solodev.com/assets/google-translate/flag-usa.png" alt="USA"></a></li>
+                        <li><a href="#googtrans(en|sv)" class="lang-en lang-select" data-lang="sv"><img src="https://cdn.discordapp.com/attachments/453109115347009538/453112563538984970/Webp.net-resizeimage.png" alt=""></a></li>
+                        <li><a href="#googtrans(en|es)" class="lang-es lang-select" data-lang="es"><img src="https://www.solodev.com/assets/google-translate/flag-mexico.png" alt="MEXICO"></a></li>
+                        <li><a href="#googtrans(en|fr)" class="lang-es lang-select" data-lang="fr"><img src="https://www.solodev.com/assets/google-translate/flag-france.png" alt="FRANCE"></a></li>
+                        <li><a href="#googtrans(en|zh-CN)" class="lang-es lang-select" data-lang="zh-CN"><img src="https://www.solodev.com/assets/google-translate/flag-china.png" alt="CHINA"></a></li>
+                        <li><a href="#googtrans(en|ja)" class="lang-es lang-select" data-lang="ja"><img src="https://www.solodev.com/assets/google-translate/flag-japan.png" alt="JAPAN"></a></li>
+                    </ul>
+                  </li>
+                </ul>
+
+>>>>>>> 26b302ad2d97593cd7519f5c2420f41ee07e391d
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -135,7 +151,7 @@
                         </select>
                     </div>
 
-                    <button id="submit-button" type="submit" class="btn btn-success btn-block">
+                    <button id="submit-button" type="submit" class="btn btn-success btn-custom btn-block">
                         <strong>Go</strong>
                     </button>
                 </form>
@@ -163,14 +179,21 @@
                 <i class="fa fa-angle-up"></i>
             </div>
         </div>
+<<<<<<< HEAD
             
+=======
+>>>>>>> 26b302ad2d97593cd7519f5c2420f41ee07e391d
                 <div class="copyright">
                     <p>&copy; 2018 GRUPP 2</p>
-                    <p><strong>2018 - </strong><strong><span id="currentday"></span></strong></p>
+                    <p><strong><span id="currentday"></span></strong></p>
                 </div>
+<<<<<<< HEAD
             </div>
        
     
+=======
+    </div>
+>>>>>>> 26b302ad2d97593cd7519f5c2420f41ee07e391d
 </footer>
 
     <!-- IMPORTANT DONT MOVE OR LOAD WONT WORK -->
@@ -182,6 +205,7 @@
     <script src="assets/js/main.js"></script>
 
     <script type="text/javascript">
+<<<<<<< HEAD
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
     }
@@ -211,6 +235,37 @@
   </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
+=======
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+        }
+    
+        function triggerHtmlEvent(element, eventName) {
+          var event;
+          if (document.createEvent) {
+            event = document.createEvent('HTMLEvents');
+            event.initEvent(eventName, true, true);
+            element.dispatchEvent(event);
+          } else {
+            event = document.createEventObject();
+            event.eventType = eventName;
+            element.fireEvent('on' + event.eventType, event);
+          }
+        }
+    
+        jQuery('.lang-select').click(function() {
+          var theLang = jQuery(this).attr('data-lang');
+          jQuery('.goog-te-combo').val(theLang);
+    
+          //alert(jQuery(this).attr('href'));
+          window.location = jQuery(this).attr('href');
+          location.reload();
+    
+        });
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+>>>>>>> 26b302ad2d97593cd7519f5c2420f41ee07e391d
     <script>
         var today = new Date();
         var yyyy = today.getFullYear();
@@ -266,7 +321,7 @@
 
                     document.getElementById('error-output').innerHTML = '';
 
-                    console.log(response);
+                    console.log(response.data);
                     removePolyline();
                     deleteMarkers();
 
@@ -302,36 +357,23 @@
                     function showRoutes() {
 
                         routesList = response.data.routes;
+                        vehiclesList = response.data.vehicles;
 
                         var allOutput = `<div class="tabacc">`;
 
                         for (var i = 0; i < routesList.length; i++) {
 
+                            segmentsList = response.data.routes[i].segments;
+                            
                             allOutput += `
                                 <div id="div${i}">
                                 <input id="${i}" type="radio" name="tabs" onclick="writePath(${i});">
                                 <label class="label-item" for="${i}"><h5 class="color-black">`;
-                            if (routesList[i].name.includes('Train') || routesList[i].name.includes('train')) {
-                                allOutput += '<i class="fas fa-train icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Bus') || routesList[i].name.includes('bus')) {
-                                allOutput += '<i class="fas fa-bus icon-i"></i>';
-                            }
-                            if (routesList[i].name.startsWith('Fly') || routesList[i].name.includes('fly ')) {
-                                allOutput += '<i class="fas fa-plane icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Drive') || routesList[i].name.includes('drive')) {
-                                allOutput += '<i class="fas fa-car icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Walk') || routesList[i].name.includes('walk')) {
-                                allOutput += '<i class="fas fa-walking icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Taxi') || routesList[i].name.includes('taxi') || routesList[i].name.includes('Uber') || routesList[i].name.includes('uber')) {
-                                allOutput += '<i class="fas fa-taxi icon-i"></i>';
-                            }
-                            if (routesList[i].name.includes('Ferry') || routesList[i].name.includes('ferry')) {
-                                allOutput += '<i class="fas fa-ship icon-i"></i>';
-                            }
+
+                                for (var p = 0; p < segmentsList.length; p++) {
+                                    allOutput += setIcon(vehiclesList[segmentsList[p].vehicle].kind);
+                                }
+
                             allOutput += `
                                 ${routesList[i].name}
                                 </h5>
@@ -366,9 +408,6 @@
                                 <div class="tab-content">
                                 <table class="table table-sm color-black">
                             `;
-
-                            segmentsList = response.data.routes[i].segments;
-                            vehiclesList = response.data.vehicles;
 
                             for (var j = 0; j < segmentsList.length; j++) {
 
@@ -618,6 +657,28 @@
 
             console.log(_zoom);
             map.setZoom(_zoom);
+        }
+
+        function setIcon(string){
+
+            var type = '';
+            
+            if(string.includes('train'))
+                type = '<i class="fas fa-train icon-i"></i>';
+            if(string.includes('bus'))
+                type = '<i class="fas fa-bus icon-i"></i>';
+            if(string.includes('plane'))
+                type = '<i class="fas fa-plane icon-i"></i>';
+            if(string.includes('car'))
+                type = '<i class="fas fa-car icon-i"></i>';
+            if(string.includes('foot'))
+                type = '<i class="fas fa-walking icon-i"></i>';
+            if(string.includes('taxi') || string.includes('towncar'))
+                type = '<i class="fas fa-taxi icon-i"></i>';
+            if(string.includes('ferry'))
+                type = '<i class="fas fa-ship icon-i"></i>';
+
+            return type;
         }
 
         /* convert minutes into hours and minutes */

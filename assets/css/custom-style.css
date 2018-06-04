@@ -26,14 +26,24 @@ body { top: 0px !important; }
     text-align: right;
     background: #eee;
   }
+<<<<<<< HEAD
   .ct-topbar__list {
+=======
+  .ct-topbarlist {
+>>>>>>> 26b302ad2d97593cd7519f5c2420f41ee07e391d
     margin-bottom: -7%;
     padding-bottom: 15px;
     padding-top:15px;
     height: 10px;
+<<<<<<< HEAD
     
   }
   .ct-language__dropdown{
+=======
+
+  }
+  .ct-languagedropdown{
+>>>>>>> 26b302ad2d97593cd7519f5c2420f41ee07e391d
       padding-top: 13px;
       max-height: 0;
       overflow: hidden;
@@ -46,6 +56,7 @@ body { top: 0px !important; }
       padding-top: 0;
     z-index:200;
   }
+<<<<<<< HEAD
   .ct-language__dropdown li{
       background: #222;
       padding: 5px;
@@ -65,6 +76,27 @@ body { top: 0px !important; }
       background: #444;
   }
   .ct-language__dropdown:before{
+=======
+  .ct-languagedropdown li{
+      background: #222;
+      padding: 5px;
+  }
+  .ct-languagedropdown li a{
+      display: block;
+  }
+  .ct-languagedropdown li:first-child{
+      padding-top: 10px;
+      border-radius: 3px 3px 0 0;
+  }
+  .ct-languagedropdown li:last-child{
+      padding-bottom: 10px;
+      border-radius: 0 0 3px 3px;
+  }
+  .ct-languagedropdown li:hover{
+      background: #444;
+  }
+  .ct-languagedropdown:before{
+>>>>>>> 26b302ad2d97593cd7519f5c2420f41ee07e391d
       content: '';
       position: absolute;
       top: 0;
@@ -300,8 +332,6 @@ MOBILEVIEW
 
 
 
-
-
    
 /*
 -----------
@@ -382,8 +412,12 @@ h5{
 .btn{
     border-radius: 0px;
 }
-
-
+li>a:active{
+    color: #ff0000;
+}
+.btn-custom{
+    background:#00669A;
+}
 /*
 -------------
 HOME
@@ -402,5 +436,41 @@ HOME
 .form-control{
     background-color: #fff;
     border-bottom: 0px solid #000;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+}
+
+
+
+
+
+/*
+--------------
+FLEXBOX
+--------------
+*/
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.flex-column{
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+.flex-column img{
+    margin-top: 8px;
+    vertical-align: middle;
+}
+@media screen and (max-width: 800px){
+    .flex-column{
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+@media screen and (max-width: 600px){
+    .flex-column{
+        flex: 100%;
+        max-width: 100%;
+    }
 }
