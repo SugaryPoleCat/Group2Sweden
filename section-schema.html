@@ -36,639 +36,73 @@
 </div>
 -->
 <!-- TEMPLATE END -->
-<button data-toggle="collapse" href="#schemalol" type="button" class="btn btn-info btn-block">Close/open schedule</button>
+<div class="custom-container">
+<button data-toggle="collapse" href="#schemalol" type="button" class="btn btn-info btn-custom btn-block">Close/open schedule</button>
 
-<div id="schemalol" class="collapsing">
-<table class="schema-table">
-<thead class="schema-table-header">
-<tr>
-    <th class="schema-table-th">
-        DATE
-    </th>
-    <th class="schema-table-th">
-        EVENTS - LOCATION
-    </th>
-</tr>
-</thead>
-<tbody class="schema-table-content">
+<div id="schemalol" class="">
+<form>
+<div class="form-group">
+    <label for="idk1">Select filter</label>
+    <select class="form-control" id="scheduleSelect">
+        <option>Date</option>
+        <option>Sport</option>
+    </select>
+</div>
+<button id="submit-button" type="submit" class="btn btn-success btn-custom btn-block"><strong>Go</strong></button>
+</form>
 
-<!-- TEMPLATE -->
-<!--
-<tr>
-    <td class="schema-table-td-important">
-        8th DATE
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Ceremonies</b> - Stockholm
-            </li>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Bobsleigh</b> - Åre
-            </li>
-            <li>
-                <b>Cross-Country Skiing</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Short Track Speed Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Skeleton</b> - Åre
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                Falun
-            </li>
-            <li>
-                Stockholm
-            </li>
-            <li>
-                Åre
-            </li>
-        </ul>
-    </td>
-</tr>
--->
-<!-- END TEMPLATAE -->
-
-<tr>
-    <td class="schema-table-td-important">
-        7th Wednesday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        8th Thursday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        9th Friday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Ceremonies</b> - Stockholm
-            </li>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        10th Saturday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Cross-Country Skiing</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Short Track Speed Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        11th Sunday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Cross-Country Skiing</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        12th Monday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Skeleton</b> - Åre
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        13th Tuesday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Cross-Country Skiing</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Short Track Speed Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Skeleton</b> - Åre
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        14th Wednesday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Skeleton</b> - Åre
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        15th Thursday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Bobsleigh</b> - Åre
-            </li>
-            <li>
-                <b>Cross-Country Skiing</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Luge</b> - Åre
-            </li>
-            <li>
-                <b>Skeleton</b> - Åre
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        16th Friday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Bobsleigh</b> - Åre
-            </li>
-            <li>
-                <b>Cross-Country Skiing</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Skeleton</b> - Åre
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        17th Saturday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Bobsleigh</b> - Åre
-            </li>
-            <li>
-                <b>Cross-Country Skiing</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Short Track Speed Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Skeleton</b> - Åre
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        18th Sunday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Bobsleigh</b> - Åre
-            </li>
-            <li>
-                <b>Cross-Country Skiing</b> - Falun
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        19th Monday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Bobsleigh</b> - Åre
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Ski Jumping</b> - Falun
-            </li>
-            <li>
-                <b>Snowboard</b> - Åre
-            </li>
-            <li>
-                <b>Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-
-<tr>
-    <td class="schema-table-td-important">
-        20th Tuesday
-    </td>
-    <td class="schema-table-td">
-        <ul>
-            <li>
-                <b>Alpine Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Biathlon</b> - Falun
-            </li>
-            <li>
-                <b>Bobsleigh</b> - Åre
-            </li>
-            <li>
-                <b>Curling</b> - Stockholm
-            </li>
-            <li>
-                <b>Figure Skating</b> - Stockholm
-            </li>
-            <li>
-                <b>Freestyle Skiing</b> - Åre
-            </li>
-            <li>
-                <b>Ice Hockey</b> - Stockholm
-            </li>
-            <li>
-                <b>Nordic Combined</b> - Falun
-            </li>
-            <li>
-                <b>Short Track Speed Skating</b> - Stockholm
-            </li>
-        </ul>
-    </td>
-</tr>
-</tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            The schema
+            <div class="row">
+                <div class="col-sm-3">
+                    Ceremonies
+                </div>
+                <div class="col-sm-3">
+                    Alpine Skiing
+                </div>
+                <div class="col-sm-3">
+                    Biathlon
+                </div>
+                <div class="col-sm-3">
+                    Bobsleigh
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    Cross-Country Skiing
+                </div>
+                <div class="col-sm-3">
+                    Curling
+                </div>
+                <div class="col-sm-3">
+                    Figure Skating
+                </div>
+                <div class="col-sm-3">
+                    Freestyle Skiing
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    Ice Hockey
+                </div>
+                <div class="col-sm-3">
+                    Luge
+                </div>
+                <div class="col-sm-3">
+                    Biathlon
+                </div>
+                <div class="col-sm-3">
+                    Bobsleigh
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            The details
+        </div>
+    </div>
+</div>
+</div>
 </div>
 </section>

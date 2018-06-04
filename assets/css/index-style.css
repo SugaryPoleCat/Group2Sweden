@@ -22,7 +22,7 @@
     margin-left: 5px;
 }
 .icon-i{
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .tabacc{
     position: relative;
@@ -57,7 +57,7 @@
     transition: max-height .45s;
 }
 .tabacc input:checked ~ .tab-content{
-    max-height: 20em;
+    max-height: 50em;
     background-color: #eee;
 }
 #map{
