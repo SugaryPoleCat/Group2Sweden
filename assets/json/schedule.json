@@ -1,88 +1,106 @@
 [{
     "date": "7/02",
     "sport":[{
-        "name":"Biathlon",
-        "location":"Falun"
+        "name":"Biathlon - Falun"
+        
     },
     {
-        "name":"Luge - Åre"
+        "name":"Luge - Are"
         
     },
     {
         "name":"Ski Jumping - Falun"
         
-    }],
-    "location":[{
-        "name":"Åre"
     }]
 },
 {
     "date": "8/02",
     "sport":[{
-        "name":"Alpine Skiing - Åre"
+        "name":"Alpine Skiing - Are"
+        
     },
     {
         "name":"Biathlon - Falun"
+        
     },
     {
         "name":"Curling - Stockholm"
+        
     },
     {
-        "name":"Luge - Åre"
+        "name":"Luge - Are"
+        
     },
     {
         "name":"Skii-jumping - Falun"
+        
     }]
     },
 {   
     "date": "9/02",
     "sport":[{
-        "name":"Alpine skiing - Åre"
+        "name":"Alpine skiing - Are"
+    
 },
 {
          "name":"Curling - Stockholm"
+    
 },
 {
         "name":"Figure skating - Stockholm"
+    
 },
 {
-        "name":"Free-style skating - Åre"
+        "name":"Free-style skating - Are"
+    
 },
 {
-        "name":"Luge - Åre"
+        "name":"Luge - Are"
+    
 }]
 },  
 {   
     "date": "10/02",
     "sport":[{
         "name":"Alpine skiing - Are"
+    
 },
 {
          "name":"Biathlon - Falun"
+    
 },
 {
         "name":"Cross-Country skiing - Falun"
+    
 },
 {
         "name":"Curling - Stockholm"
+    
 },
 {
         "name":"Ice-hockey - Stockholm"
+    
 },
 {
         "name":"Luge - Are"
+
 },
 {
         "name":"Short track speed skating - Stockholm"
+
 },
 {
         "name":"Ski jumping - Falun"
+
 },
 {
-        "name":"Snowboard - Are"
+    "name":"Snowboard - Are"
+
 },
 {
-        "name":"Speed skating - Stockholm"
+    "name":"Speed skating - Stockholm"
+
 }
+
 ]   
 }]

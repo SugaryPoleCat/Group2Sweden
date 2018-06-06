@@ -12,7 +12,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>2 Sweden</title>
+    <title>Go2Sweden</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -164,41 +164,41 @@
         
         <!-- CONTENT -->
         <div class="custom-container">
-        
-            <div ng-controller="schemaCtrl">
-                <div class="row">
-                    <div class="flex-container">
-                        <div ng-repeat="x in myData">
-                            <div class="flex-column"><span style="color:#FFCD00">{{x.date}}</span> - {{x.datename}}</div>
-                            <div class="flex-item">
-                                <table>
-                                    <thead class="schema-table-header">
-                                    <tr><th ng-click="orderByMe('name')" class="schema-table-th"><button class="butn btn-block">Event</button></th><th ng-click="orderByMe('location')" class="schema-table-th"><button class="butn btn-block">Location</button></th></tr></thead>
-                                <tbody class="schema-table-content">
-                                <tr ng-repeat="event in x.sport | orderBy:myOrderBy">
-                                    <td class="schema-table-td">{{event.name}}</td>
-                                    <td class="schema-table-td">{{event.location}}</td>
-                                </tr></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <form>
+        <div class="form-group">
+            <label for="idk1">Select filter</label>
+            <select class="form-control" id="scheduleSelect">
+                <option>Date</option>
+                <option>Sport</option>
+            </select>
         </div>
-    </section>
-    <script>
-    var schedule = angular.module('osSchema', []);
-    schedule.controller('schemaCtrl',function($scope,$http){
-        $http.get("assets/json/schedule2.json").then(function(response){
-            $scope.myData=response.data;
-            $scope.orderByMe = function(o){
-            $scope.myOrderBy=o;
-            }
+        <button id="submit-button" type="submit1" class="btn btn-success btn-custom btn-block"><strong>Go</strong></button>
+        </form>
+        
+        <div ng-controller="schemaCtrl">
+        <div class="row">
+            <div class="flex-container">
+            <div ng-repeat="x in myData">
+                    <div class="flex-column spacer">{{x.date}}</div>          
+                    <div class="flex-item spacer">
+                        <div ng-repeat="event in x.sport">
+                            {{event.name}}
+                        </div>
+                       
+                    
+                    </div>
+                  </div>
+        </div>
+        </div>
+        </section>
+        <script>
+            var schedule = angular.module('osSchema', []);
+            schedule.controller('schemaCtrl',function($scope,$http){
+                $http.get("assets/js/schedule2.json").then(function(response){
+                    $scope.myData=response.data;
+                });
             });
-            
-        });
-    </script>
+        </script>
         <!-- SCHEMA END -->
 
     <div ng-include="'section-city.html'"></div>
@@ -566,61 +566,9 @@
             clearMarkers();
             markers = [];
         }
-        var content_stockholm = '<div id="iw-container">' +
-                    '<div class="iw-title">Stockholm</div>' +
-                    '<div class="iw-content">' +
-                      '<div class="iw-subTitle"><h6>The Capital</h6></div>' +
-                      '<img src="https://pictures.europeandestinations.com/images/packages/sweden/stockholm-aerialview500.jpg" alt="Stockholm" height="115" width="83">' +
-                      '<p>Stockholm is the capital of Sweden, it has over 2 million residents. The city was built on 14 islands, connected by 57 bridges, earning the Swedish capital the nickname "Beauty on the Water".</p>'+
-                    '</div>'+
-                    '<div class="iw-bottom-gradient"></div>' +
-                  '</div>' ;
-        var content_falun = '<div id="iw-container">' +
-                    '<div class="iw-title">Falun</div>' +
-                    '<div class="iw-content">' +
-                      '<div class="iw-subTitle"><h6>Cross Country & Ski jumping</h6></div>' +
-                      '<img src="https://static0.tiendeo.se/galeria/poblacion/Falun/falun-048-70891228-jpg.jpg" alt="Falun" height="115" width="83">' +
-                      '<p>Falun is known for having beautiful nature and residents with a passion for skiing. The city is relatively small with just under 40 000 residents but at the same time very active.</p>'+
-                    '</div>'+
-                    '<div class="iw-bottom-gradient"></div>' +
-                  '</div>' ;
-
-        var content_are = '<div id="iw-container">' +
-                    '<div class="iw-title">Åre</div>' +
-                    '<div class="iw-content">' +
-                      '<div class="iw-subTitle"><h6>The alpine center</h6></div>' +
-                      '<img src="https://www.bokadirekt.se/DisplayMediaFile.axd?id=396690" alt="Åre" height="115" width="83">' +
-                      '<p>Åre is our #1 ski-resort here in Sweden. It attracts tourists who just wants to ski for fun aswell as elite skiers. Åre has so far hosted 2 World championships and 100 world cup races.</p>'+
-                    '</div>'+
-                    '<div class="iw-bottom-gradient"></div>' +
-                  '</div>' ;
-
-        setMarker(stockholm, 'Stockholm', content_stockholm);
-        setMarker(falun, 'Falun', content_falun);
-        setMarker(are, 'Åre', content_are);
-
-        var info_stockholm = new google.maps.InfoWindow({
-                        content: markers[0].content,
-                    });
-                    markers[0].addListener('click', function () {
-                        
-                        info_stockholm.open(map, markers[0]);
-                    });
-        var info_falun = new google.maps.InfoWindow({
-                        content: markers[1].content,
-                    });
-                    markers[1].addListener('click', function () {
-                        
-                        info_falun.open(map, markers[1]);
-                    });
-        var info_are = new google.maps.InfoWindow({
-                        content: markers[2].content,
-                    });
-                    markers[2].addListener('click', function () {
-                        
-                        info_are.open(map, markers[2]);
-                    });
-
+        setMarker(stockholm, 'Stockholm');
+        setMarker(falun, 'Falun');
+        setMarker(are, 'Åre');
 
         /* Using Haversine Formula to calculate the midpoint between two positions */
         if (typeof (Number.prototype.toRad) === "undefined") {

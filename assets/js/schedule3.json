@@ -1,0 +1,34 @@
+{
+    "cities":[
+        {
+        "name":"Stockholm",
+        "dates":[{
+            "date":"7/02",
+            "sport":[
+                "Biathlon",
+                "Falun"
+            ]
+        }]
+        },
+        {
+        "name":"Falun",
+        "dates":[{
+            "date":"7/02",
+            "sport":[
+                "Biathlon",
+                "Falun"
+            ]
+        }]
+        },
+        {
+        "name":"Are",
+        "dates":[{
+            "date":"7/02",
+            "sport":[
+                "Biathlon",
+                "Falun"
+            ]
+        }]
+        }
+    ]
+}
