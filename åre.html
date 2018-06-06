@@ -28,6 +28,7 @@
     <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
     <link rel="stylesheet" href="assets/css/åre.css">
     <link rel="stylesheet" href="assets/css/custom-style.css">
+    <link rel="stylesheet" href="assets/css/stockholm_map.css">
     
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
@@ -35,6 +36,7 @@
 
     <!--Theme Responsive css-->
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ruthie" rel="stylesheet">
 
     
     <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -92,20 +94,22 @@
     </nav>
 
     <!--Home page style-->
+    
     <header id="home" class="home">
-        <div class="overlay">
-            <!-- <div class="container">
-                <div class="row">
-                    <div class="home-wrapper">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="home-content text-center">
+            <div class="overlay">
+                <div class="container">
+                    
+                        <div class="home-wrapper">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="home-content text-center">
+                                    <h1 >Åre</h1>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
-            </div> -->
-        </div>
-    </header>
+            </div>
+        </header>
 
     <!-- Sections -->
     <!-- <div id="service">
@@ -284,15 +288,50 @@
             </div> -->
         
     </section>
+
+    <div class="rows">
+            <div class="column">
+                    <a href="https://aresweden.com/ata-dricka/restauranger/"> <img src="assets/images/åre/eatanddrink.jpg" alt="Äta&dricka" > <div>Go to aresweden.com</div>
+                    </a>
+            </div>
+            <div class="column">
+                    <a href="https://aresweden.com/se-gora/"> <img src="assets/images/åre/seeanddo.jpg" alt="Se&göra" >
+                        <div>Go to aresweden.com</div>
+                    </a>
+            </div>
+            <div class="column">
+                    <a href="https://aresweden.com/upptack/"> <img src="assets/images/åre/guides.jpg" alt="Guider" >
+                        <div>Go to aresweden.com</div>
+                    </a>
+            </div>
+            <div class="column">
+                    <a href="https://aresweden.com/kalender/"> <img src="assets/images/åre/event.jpg" alt="Evenemang" >
+                        <div>Go to aresweden.com</div>
+                    </a>
+            </div>
+        </div>
     
-    <ul id="filters" class="clearfix">
-            <!-- <li><span class="filter active" data-filter=".app, .card, .icon, .logo, .web">All</span></li> -->
-            <li><span class="filter fas fa-utensils" data-filter=".app"></span><h5>Äta & dricka</h5></li>
-            <li><span class="filter fas fa-camera" data-filter=".card"></span><h5>Se & göra</h5></li>
-            <li><span class="filter fas fa-book" data-filter=".icon"></span><h5>Guider</h5></li>
-            <li><span class="filter fas fa-calendar" data-filter=".logo"></span><h5>Evenemang</h5></li>
-            <!-- <li><span class="filter" data-filter=".web">Web</span></li> -->
-        </ul>
+        <div class="maplist">
+            <div id="left-panel">
+                    <ul id="filters" class="clearfix">
+                            <!-- <li><span class="filter active" data-filter=".app, .card, .icon, .logo, .web">All</span></li> -->
+                            <li><span  class="restaurant filter fas fa-utensils" data-filter=".app"></span><h5>Restaurants</h5></li>
+                            <li><span  class="museum filter fas fa-camera" data-filter=".card"></span><h5>Museums</h5></li>
+                            <li><span  class="hotels filter fas fa-hotel" data-filter=".icon"></span><h5>Hotels</h5></li>
+                            <!-- <li><span class="filter fas fa-calendar" data-filter=".logo"></span><h5>Evenemang</h5></li> -->
+                            <!-- <li><span class="filter" data-filter=".web">Web</span></li> -->
+                        
+            </div>
+    <div id="map-are" ></div>
+    <div id="right-panel">
+        <div class="iw-title">Results</div>
+        <div id="places"></div>
+        <!-- <button id="more">More Results</button> -->
+            
+            
+        </div>
+    </div>
+    </div>
     
         <div id="portfoliolist">
                 <div class="portfolio logo" data-cat="logo">
@@ -315,7 +354,21 @@
     <br>
     <br>
     <br>
-    <link rel="stylesheet" href="footer.html">
+    
+    
+    <!--Footer-->
+    <footer id="footer" class="footer">
+        <div class="custom-container">
+            <div class="scroll-top">
+                <div class="scrollup">
+                    <i class="fa fa-angle-up"></i>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <strong><span id="currentday"></span></strong> GRUPP 2</p>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
@@ -325,6 +378,218 @@
     <script src="assets/js/jquery.magnific-popup.js"></script>
     <script src="assets/js/main.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.mixitup.min.js"></script>
+    <script>
+
+
+
+            
+        var map;
+        var placeList;
+        var markers = [];
+        var moreButton;
+        var choice;
+      
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map-are'), {
+            center: {lat: 63.40109,
+            lng: 13.08222},
+            zoom: 13,
+            backgroundColor: '#E1E1E1',
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles:[{
+                    featureType: "poi.business",
+                    elementType: "labels",
+                    stylers:[{
+                            visibility: "off"
+                    }
+                    ]}]
+          });
+          var request = {
+              //placeId: 'ChIJywtkGTF2X0YRZnedZ9MnDag',
+              location: map.center,
+              radius: 1500,
+              types: ['']
+          };
+          
+          placesList = document.getElementById('places');
+          typeCtrl(map);
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+          
+           
+        
+        //   var getNextPage = null;
+        //   moreButton = document.getElementById('more');
+        //   moreButton.onclick = function() {
+        //       moreButton.disabled = true;
+        //       if (getNextPage) getNextPage();
+        //   };
+
+          
+          
+          
+        }
+
+function callback(results, status, pagination) {
+clear();
+if (status == google.maps.places.PlacesServiceStatus.OK) {
+for(var i = 0; i < results.length; i++){
+       if (results.types !== 'point_of_interest') {         
+                     
+    createMarker(results[i]);
+    markers[i].setMap(map);
+       }
+    console.log(results[i]);         
+    
+}
+
+
+//   moreButton.disabled = !pagination.hasNextPage;
+//   getNextPage = pagination.hasNextPage && function() {
+//       pagination.nextPage();
+//   }
+}
+}
+
+        // function callback(results, status) {
+        //     if (status == google.maps.places.PlacesServiceStatus.OK) {
+        //         for(var i = 0; i < results.length; i++){
+        //             if (results.types!='lodging') {
+        //                 var placeId = results[i].formatted_address;
+        //                 createMarker(results[i]);
+        //                 console.log(results[i]);
+        //             }
+        //         }
+        //     }
+        // }
+        // var service = new google.maps.places.PlacesService(map);
+        // service.getDetails({
+        //       placeId: place.place_id
+        //   },function(place, status){
+
+        //   });
+        
+
+        function createMarker(place) {
+            var placeList = document.getElementById('places');
+            var placeId = place.place_id;
+            var placeLoc = place.geometry.location;
+            var gpmarker    = new google.maps.MarkerImage(place.icon, null, null, null, new google.maps.Size(20, 20));
+            var marker = new google.maps.Marker({
+                map: map,
+                position: placeLoc,
+                icon: gpmarker
+            });
+            markers.push(marker);
+            console.log(markers);
+            var request ={ placeId };
+            google.maps.event.addListener(marker, 'click', function() {
+                var service = new google.maps.places.PlacesService(map);
+            service.getDetails( request, function(details, status){
+                console.log(details, status);
+                var content=details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number;
+               var infoWindow= new google.maps.InfoWindow();
+  infoWindow.setContent(content);
+  infoWindow.open(map, marker);
+});
+});
+jQuery('#places').append('<li  class="list_title" data-placeId="'+place.place_id+'"><h6>' + place.name  + '</h6><small></small></li>');
+}
+var isOpen = false;
+
+$(document).on('click','#places .toWeb',function(event) {
+event.stopPropagation();
+var href = $(this).attr('data-href');
+window.open(href);
+});
+//map.event.addDomListener(window, 'load', initialize);
+$(document).on('click','#places li',function() {
+var self=$(this);
+isOpen = !isOpen;
+
+
+
+var request = { placeId: self.attr('data-placeId') };
+var service = new google.maps.places.PlacesService(map);
+service.getDetails(request, function(details, status) {
+  console.log(details);
+  var content;
+  if(isOpen){
+content="<br />" 
+          + "Address: "+details.formatted_address 
+          + "<br />" 
+          + "<img src='"+details.photos[0].getUrl({maxWidth:640})+"' alt='' height='115' width='83'>" 
+          + "<br />" 
+          + "Rating: "+details.rating 
+          + "<br />" 
+          + "Phone: "+details.formatted_phone_number
+          + "<br />"
+          +"<button class='btn toWeb' data-href='"+ details.website +"' target='_blank' >To Website</button>";
+}else{
+
+
+content= '';
+}
+console.log(isOpen);
+jQuery('small',self).html(content);
+});
+});
+
+function setMapOnAll(map) {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(map);
+    }
+  }
+
+
+function typeCtrl ( map ) {
+
+$(document).on('click','.restaurant',function() {
+
+
+clear();
+$( '#places li' ).remove();
+showType('restaurant');
+
+   
+});
+
+$(document).on('click','.museum',function() {
+
+
+clear();
+$( '#places li' ).remove();
+showType('museum');
+});
+
+$(document).on('click','.hotels',function() {
+
+
+clear();
+$( '#places li' ).remove();
+showType('lodging');
+
+});
+}
+
+function clear(){
+results=[];
+setMapOnAll(null);
+}
+function showType(type) { 
+var service = new google.maps.places.PlacesService(map);   
+    service.nearbySearch({
+        location: map.center,
+        radius: 10000,
+        type: [type]
+    }, callback);
+}
+
+
+        
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnDF77c4DZf_Qaq2Y8n8j5gXvge6YuHFk&callback=initMap&libraries=places,geometry&language=EN"
+      async defer></script>
 </body>
 
 </html>

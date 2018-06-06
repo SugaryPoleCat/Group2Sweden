@@ -487,7 +487,7 @@ Author URI: http://themeforest.net/user/XpeedStudio/portfolio
    
    /*For Home Section*/
    .home{
-       background: url(../images/header_bg.png) no-repeat center top fixed;
+       background: url(../images/background.jpg) no-repeat center;
        background-size: cover;
        -moz-background-size: cover;
        -webkit-background-size: cover;
